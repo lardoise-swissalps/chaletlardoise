@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#101311" />
+    <title>Essai de réservation — Chalet L’Ardoise</title>
+    <meta
+      name="description"
+      content="Prévisualisation privée du parcours de réservation Smoobu du Chalet L’Ardoise."
+    />
+    <link rel="icon" href="./images/logo.svg" />
+    <style>
+      :root {
+        --ink: #101311;
+        --ink-soft: #1a1e1b;
+        --linen: #f3efe7;
+        --paper: #faf8f3;
+        --white: #ffffff;
+        --bronze: #b79059;
+        --bronze-light: #dfc69d;
+        --sage: #667064;
+        --muted: #746f65;
+        --line: rgba(16, 19, 17, 0.13);
+        --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: light;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background:
+          radial-gradient(circle at 4% 12%, rgba(183, 144, 89, 0.12), transparent 28rem),
+          var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        line-height: 1.55;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--bronze);
+        outline-offset: 4px;
+      }
+
+      .test-bar {
+        padding: 0.62rem 1rem;
+        background: var(--bronze);
+        color: var(--white);
+        font-size: 0.69rem;
+        font-weight: 750;
+        letter-spacing: 0.13em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .site-header {
+        display: flex;
+        min-height: 78px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 0 4vw;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-family: var(--serif);
+        font-size: 1rem;
+        letter-spacing: 0.035em;
+      }
+
+      .brand img {
+        width: auto;
+        height: 42px;
+        filter: brightness(0) invert(1);
+      }
+
+      .back-link {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        gap: 0.55rem;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        padding: 0.65rem 1rem;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 0.69rem;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        transition: border-color 160ms ease, color 160ms ease;
+      }
+
+      .back-link:hover {
+        border-color: var(--bronze-light);
+        color: var(--white);
+      }
+
+      .page-shell {
+        display: grid;
+        grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.55fr);
+        gap: clamp(2rem, 4vw, 5rem);
+        width: min(1420px, calc(100% - 8vw));
+        margin: 0 auto;
+        padding: clamp(3rem, 6vw, 6rem) 0;
+      }
+
+      .intro {
+        align-self: start;
+        position: sticky;
+        top: 2rem;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin: 0 0 1rem;
+        color: var(--bronze);
+        font-size: 0.69rem;
+        font-weight: 750;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 34px;
+        height: 1px;
+        background: currentColor;
+        content: "";
+      }
+
+      h1 {
+        max-width: 11ch;
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(2.35rem, 4.8vw, 4.9rem);
+        font-weight: 400;
+        letter-spacing: -0.035em;
+        line-height: 0.98;
+      }
+
+      .lead {
+        max-width: 34rem;
+        margin: 1.5rem 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .steps {
+        display: grid;
+        gap: 0;
+        margin: 2.1rem 0 0;
+        padding: 0;
+        border-top: 1px solid var(--line);
+        list-style: none;
+      }
+
+      .steps li {
+        display: grid;
+        grid-template-columns: 1.8rem 1fr;
+        gap: 0.7rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--line);
+        color: var(--sage);
+        font-size: 0.84rem;
+      }
+
+      .steps span {
+        color: var(--bronze);
+        font-family: var(--serif);
+        font-size: 1rem;
+      }
+
+      .safety-note {
+        margin: 2rem 0 0;
+        border-left: 2px solid var(--bronze);
+        padding: 0.15rem 0 0.15rem 1rem;
+        color: var(--ink-soft);
+        font-size: 0.8rem;
+      }
+
+      .safety-note strong {
+        display: block;
+        margin-bottom: 0.2rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .booking-column {
+        min-width: 0;
+      }
+
+      .booking-heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1rem;
+        margin: 0 0 1rem;
+      }
+
+      .booking-heading h2 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+        font-weight: 400;
+      }
+
+      .live-source {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        color: var(--sage);
+        font-size: 0.72rem;
+        white-space: nowrap;
+      }
+
+      .live-source::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #528057;
+        box-shadow: 0 0 0 4px rgba(82, 128, 87, 0.13);
+        content: "";
+      }
+
+      .booking-card {
+        min-height: 610px;
+        border: 1px solid var(--line);
+        border-top: 3px solid var(--bronze);
+        background: var(--white);
+        box-shadow: 0 28px 80px rgba(16, 19, 17, 0.09);
+        padding: clamp(1rem, 2.8vw, 2.25rem);
+      }
+
+      #apartmentIframeAll {
+        min-height: 540px;
+      }
+
+      .form-note {
+        margin: 1rem 0 0;
+        color: var(--muted);
+        font-size: 0.74rem;
+        text-align: right;
+      }
+
+      noscript p {
+        border: 1px solid #d9c8ac;
+        background: #fff9ee;
+        padding: 1rem;
+        color: #5f4a28;
+      }
+
+      @media (max-width: 900px) {
+        .page-shell {
+          grid-template-columns: 1fr;
+          width: min(100% - 2rem, 760px);
+        }
+
+        .intro {
+          position: static;
+        }
+
+        h1 {
+          max-width: 14ch;
+        }
+
+        .steps {
+          grid-template-columns: 1fr 1fr;
+          column-gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .test-bar {
+          font-size: 0.61rem;
+          letter-spacing: 0.09em;
+        }
+
+        .site-header {
+          min-height: 68px;
+          padding: 0 1rem;
+        }
+
+        .brand span {
+          display: none;
+        }
+
+        .brand img {
+          height: 38px;
+        }
+
+        .back-link {
+          min-height: 38px;
+          padding: 0.55rem 0.8rem;
+          font-size: 0.62rem;
+        }
+
+        .page-shell {
+          gap: 2.5rem;
+          padding: 2.5rem 0 3.5rem;
+        }
+
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .booking-heading {
+          display: block;
+        }
+
+        .live-source {
+          margin-top: 0.45rem;
+        }
+
+        .booking-card {
+          min-height: 560px;
+          padding: 0.65rem;
+        }
+
+        .form-note {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-bar">Prévisualisation — ne pas finaliser de paiement</div>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Retour au Chalet L’Ardoise">
+        <img src="./images/logo.svg" alt="" />
+        <span>Chalet L’Ardoise</span>
+      </a>
+      <a class="back-link" href="./">← Retour au site</a>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Essai de réservation</p>
+        <h1 id="page-title">Le parcours vu par vos clients</h1>
+        <p class="lead">
+          Choisissez des dates libres pour vérifier la présentation du séjour, des tarifs et des options.
+          Les montants affichés sont lus directement dans Smoobu : aucun prix n’est saisi dans cette page.
+        </p>
+        <ol class="steps">
+          <li><span>01</span>Dates et nombre de voyageurs</li>
+          <li><span>02</span>Hébergement et éventuels frais</li>
+          <li><span>03</span>Options disponibles dans Smoobu</li>
+          <li><span>04</span>Coordonnées et mode de paiement</li>
+        </ol>
+        <p class="safety-note">
+          <strong>Consigne pour ce premier essai</strong>
+          Allez jusqu’au récapitulatif pour contrôler les prix, puis arrêtez-vous avant la confirmation finale.
+          Une validation peut créer une vraie réservation dans Smoobu.
+        </p>
+      </section>
+
+      <section class="booking-column" aria-labelledby="booking-title">
+        <div class="booking-heading">
+          <h2 id="booking-title">Disponibilités et tarifs</h2>
+          <span class="live-source">Données synchronisées par Smoobu</span>
+        </div>
+        <div class="booking-card">
+          <div id="apartmentIframeAll">
+            <script src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script>
+            <script>
+              BookingToolIframe.initialize({
+                url: "https://login.smoobu.com/fr/booking-tool/iframe/1441081",
+                baseUrl: "https://login.smoobu.com",
+                target: "#apartmentIframeAll"
+              });
+            </script>
+            <noscript>
+              <p>Activez JavaScript pour afficher le formulaire de réservation Smoobu.</p>
+            </noscript>
+          </div>
+        </div>
+        <p class="form-note">Cette page de test n’est pas reliée au menu du site public.</p>
+      </section>
+    </main>
+  </body>
+</html>
