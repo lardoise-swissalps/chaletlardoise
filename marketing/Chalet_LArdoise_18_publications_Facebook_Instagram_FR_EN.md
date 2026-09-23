@@ -13,6 +13,7 @@
 - Instagram : remplacer le lien affiché par « Réservation & infos → lien dans la bio ».
 - Visuels fournis par l’Office du Tourisme de Chamoson : conserver le marquage intégré et ajouter « Photo © Olivier Maire » dans la légende.
 - Espacer les contenus régionaux de trois à cinq publications afin de garder le chalet au centre de la communication.
+- Informations destination validées par les offices du tourisme de Chamoson et d’Ovronnaz ; privilégier des résumés courts et renvoyer vers leurs sites officiels.
 
 ## Tri définitif du lot drone
 
@@ -503,7 +504,7 @@ https://lardoise-swissalps.github.io/chaletlardoise/
 
 Le Valais se découvre aussi entre les vignes.
 
-À quelques minutes du Chalet L’Ardoise, les coteaux de Chamoson dessinent un paysage unique entre murs de pierres sèches, roses, villages et sommets. Une invitation à marcher, rencontrer les producteurs et savourer le territoire autrement.
+Avec plus de 400 hectares de vignes et environ 2 500 heures de soleil par an, Chamoson est la plus grande commune viticole du Valais. Ses coteaux, murs de pierres sèches, caves et villages invitent à découvrir le terroir au rythme d’une balade.
 
 Puis, retrouver le calme du chalet et prolonger la soirée face à la montagne.
 
@@ -514,7 +515,7 @@ https://lardoise-swissalps.github.io/chaletlardoise/
 
 Valais is also meant to be discovered among the vines.
 
-Just minutes from Chalet L’Ardoise, the terraced vineyards of Chamoson create a remarkable landscape of dry-stone walls, roses, villages and mountain peaks. A place to walk, meet local producers and experience the region at a slower pace.
+With more than 400 hectares of vines and around 2,500 hours of sunshine each year, Chamoson is the largest wine-growing municipality in Valais. Its terraces, dry-stone walls, cellars and villages invite you to discover the local terroir at a slower pace.
 
 Then return to the calm of the chalet and let the evening linger.
 
@@ -539,7 +540,7 @@ En montagne, le luxe commence parfois par le silence.
 
 Un sentier, quelques fleurs alpines et les parois du Valais pour seul horizon. Autour de Chamoson et d’Ovronnaz, la nature invite à ralentir, respirer et retrouver l’essentiel.
 
-Le Chalet L’Ardoise devient alors votre point de départ — et le refuge que l’on aime retrouver en fin de journée.
+Le Chalet L’Ardoise devient alors votre point de départ — et le refuge que l’on aime retrouver en fin de journée, après les sentiers ou un moment de détente aux bains thermaux d’Ovronnaz.
 
 Réservation & informations :  
 https://lardoise-swissalps.github.io/chaletlardoise/
@@ -550,7 +551,7 @@ In the mountains, luxury sometimes begins with silence.
 
 A trail, a few alpine flowers and the cliffs of Valais on the horizon. Around Chamoson and Ovronnaz, nature invites you to slow down, breathe deeply and reconnect with what matters.
 
-Chalet L’Ardoise is your starting point — and the retreat you will love coming home to.
+Chalet L’Ardoise is your starting point — and the retreat you will love coming home to after a day on the trails or a relaxing visit to the thermal baths in Ovronnaz.
 
 Booking & information:  
 https://lardoise-swissalps.github.io/chaletlardoise/

@@ -1,5 +1,7 @@
 (() => {
   const SECTION_ID = "region";
+  const MAP_LINK = "https://www.openstreetmap.org/?mlat=46.2034&mlon=7.1843#map=14/46.2034/7.1843";
+  const MAP_EMBED = "https://www.openstreetmap.org/export/embed.html?bbox=7.145%2C46.175%2C7.225%2C46.235&layer=mapnik&marker=46.2034%2C7.1843";
   const sectionMarkup = `
     <section class="region-section" id="${SECTION_ID}" aria-labelledby="region-title">
       <div class="region-inner">
@@ -8,7 +10,7 @@
             <p class="eyebrow">Autour du chalet</p>
             <h2 id="region-title">Bien plus qu’un séjour —<br><em>vivez le Valais</em></h2>
           </div>
-          <p class="region-intro">Depuis le Chalet L’Ardoise, découvrez les vignobles en terrasses de Chamoson, les sentiers entre Rhône et Muveran et les paysages alpins d’Ovronnaz. Une destination quatre saisons, entre nature, terroir et patrimoine.</p>
+          <p class="region-intro">Depuis le Chalet L’Ardoise, découvrez le vignoble et le patrimoine de Chamoson, les sentiers entre Rhône et Muveran ainsi que les thermes et activités alpines d’Ovronnaz. Une destination quatre saisons, entre nature, terroir et bien-être.</p>
         </div>
         <div class="region-grid">
           <figure class="region-card">
@@ -16,7 +18,7 @@
             <figcaption>
               <span class="region-card-kicker">Terroir</span>
               <h3>Un vignoble d’exception</h3>
-              <p>Balades entre murs de pierres sèches, caves accueillantes et panoramas ouverts sur la vallée du Rhône.</p>
+              <p>Plus de 400 hectares de vignes, environ 2 500 heures de soleil par an, des caves accueillantes et des panoramas ouverts sur la vallée du Rhône.</p>
               <small>Photo © Olivier Maire</small>
             </figcaption>
           </figure>
@@ -25,7 +27,7 @@
             <figcaption>
               <span class="region-card-kicker">Grand air</span>
               <h3>Du Rhône au Muveran</h3>
-              <p>Des itinéraires pour chaque saison, des promenades paisibles aux randonnées alpines plus sportives.</p>
+              <p>De la vallée du Rhône aux reliefs du Muveran, explorez à pied ou à vélo une grande diversité de paysages, du vignoble à la haute montagne.</p>
               <small>Photo © Olivier Maire</small>
             </figcaption>
           </figure>
@@ -33,16 +35,17 @@
             <img src="/chaletlardoise/images/region-alpes-valais.jpg" alt="Prairie alpine et sommets près de Chamoson et Ovronnaz" width="1500" height="1000" loading="lazy">
             <figcaption>
               <span class="region-card-kicker">Quatre saisons</span>
-              <h3>La nature, sans détour</h3>
-              <p>Thermes, ski, alpages et villages de caractère : composez un séjour au rythme qui vous ressemble.</p>
+              <h3>Ovronnaz, quatre saisons</h3>
+              <p>À quelques minutes du chalet : bains thermaux, ski, randonnées, VTT et activités familiales, été comme hiver.</p>
               <small>Photo © Olivier Maire</small>
             </figcaption>
           </figure>
         </div>
         <div class="region-actions">
-          <a class="region-link" href="https://www.chamoson.ch/fr/" target="_blank" rel="noreferrer">Préparer votre séjour</a>
+          <a class="region-link" href="https://www.chamoson.ch/fr/" target="_blank" rel="noreferrer">Découvrir Chamoson</a>
+          <a class="region-link" href="https://www.ovronnaz.ch/" target="_blank" rel="noreferrer">Découvrir Ovronnaz</a>
           <a class="region-link" href="https://www.village-du-livre.ch/" target="_blank" rel="noreferrer">Village du Livre</a>
-          <span class="region-note">Suggestions officielles de l’Office du Tourisme de Chamoson</span>
+          <span class="region-note">Informations issues des offices du tourisme de Chamoson et d’Ovronnaz</span>
         </div>
       </div>
     </section>`;
@@ -63,9 +66,26 @@
     nav.insertBefore(link, situationLink || null);
   }
 
+  function installMap() {
+    const mapLink = document.querySelector('.map-section a[href*="openstreetmap.org"]');
+    if (mapLink) mapLink.setAttribute("href", MAP_LINK);
+
+    const mapFrame = document.querySelector(".map-frame iframe");
+    if (mapFrame && mapFrame.getAttribute("src") !== MAP_EMBED) {
+      mapFrame.setAttribute("src", MAP_EMBED);
+    }
+
+    const placeLabel = document.querySelector(".location-image > div > span");
+    if (placeLabel) placeLabel.textContent = "Mayens-de-Chamoson";
+
+    const altitudeLabel = document.querySelector(".location-image > div > strong");
+    if (altitudeLabel) altitudeLabel.textContent = "env. 1 200 m";
+  }
+
   function install() {
     installSection();
     installNavigation();
+    installMap();
   }
 
   function start() {
