@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carte terroir – Chalet L’Ardoise (maquette)</title>
+<style>
+:root{--forest:#1a2823;--gold:#a47c43;--cream:#f9f5ed;--ink:#262a25}
+*{box-sizing:border-box}
+body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#ddd;margin:0}
+.sheet{width:105mm;height:148mm;margin:14px auto;position:relative;overflow:hidden;background:var(--cream);box-shadow:0 8px 20px #0002;page-break-after:always}
+.front{background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:13mm 9mm;text-align:center}
+.front:before,.front:after{content:"";position:absolute;border:1px solid #c3a77c44;inset:5mm}
+.front:after{inset:7mm}
+.faux-logo{width:54px;height:54px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:#d0b58b;font-size:30px;margin-bottom:10mm}
+.small{font-family:Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:8px;color:#d2bb92}
+.front h1{font-size:32px;font-weight:400;line-height:1.08;margin:9mm 0 3mm}
+.front p{font-size:13px;line-height:1.7;margin:3mm 0 5mm}
+.divider{width:20mm;height:1px;background:var(--gold);margin:5mm auto}
+.front footer{position:absolute;bottom:15mm;font-family:Arial,sans-serif;font-size:8px;letter-spacing:.1em;color:#c6b99e}
+.back{padding:11mm 10mm;display:flex;flex-direction:column}
+.back .header{border-bottom:1px solid #c8baa3;padding-bottom:5mm}
+.back h2{font-size:23px;font-weight:400;line-height:1.05;margin:3mm 0 2mm}
+.back .intro{font:10px/1.55 Arial,sans-serif;color:#625d54}
+.producer{display:grid;grid-template-columns:24px 1fr;gap:3mm;border-bottom:1px solid #ddd3c4;padding:5mm 0}
+.symbol{width:24px;height:24px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#927144;font-size:15px}
+.producer h3{margin:0 0 1mm;font:700 10px Arial,sans-serif}
+.producer .name{font-size:12px;margin:0}
+.producer .hint{color:#6e665c;font:9px/1.5 Arial,sans-serif;margin:1mm 0 0}
+.bottom{margin-top:auto;text-align:center;font:9px/1.5 Arial,sans-serif;color:#635b50}
+.review-notice{background:#efe3d0;color:#654f2e;font:700 9px Arial,sans-serif;text-align:center;padding:2mm}
+@page{size:A6 portrait;margin:0}
+@media print{body{background:white}.sheet{margin:0;box-shadow:none} .sheet:last-child{page-break-after:auto}}
+@media screen and (max-width:420px){.sheet{transform-origin:top center;max-width:100%;height:148mm}}
+</style></head>
+<body>
+<article class="sheet front" aria-label="Recto de la carte">
+<div class="faux-logo" aria-hidden="true">✦</div>
+<div class="small">Chalet L’Ardoise</div>
+<h1>Une soirée<br>aux saveurs<br>du Valais</h1>
+<div class="divider"></div>
+<p>Une fondue à partager.<br>Des artisans à découvrir.<br>Un souvenir de montagne.</p>
+<div class="small">Mayens-de-Chamoson · Suisse</div>
+<footer>PACK FONDUE PREMIUM · TERROIR VALAISAN</footer>
+</article>
+<article class="sheet back" aria-label="Verso de la carte">
+<div class="header"><div class="small" style="color:#86663e">Notre sélection locale</div>
+<h2>Derrière chaque<br>saveur, un artisan.</h2>
+<p class="intro">Ce pack mettra à l’honneur des producteurs valaisans. Leurs noms et produits seront indiqués ici après la confirmation des partenariats.</p></div>
+<section class="producer"><div class="symbol">✺</div><div><h3>LE FROMAGE</h3><p class="name">Fromagerie partenaire à confirmer</p><p class="hint">Mélange à fondue valaisan · nom de la fromagerie et lieu</p></div></section>
+<section class="producer"><div class="symbol">♧</div><div><h3>LA VIANDE SÉCHÉE</h3><p class="name">Artisan boucher à confirmer</p><p class="hint">Viande séchée du Valais · origine et spécialité</p></div></section>
+<section class="producer"><div class="symbol">❧</div><div><h3>LE VIN BLANC</h3><p class="name">Vigneron de Chamoson à confirmer</p><p class="hint">Fendant ou Johannisberg · domaine et cuvée</p></div></section>
+<section class="producer"><div class="symbol">✧</div><div><h3>LES ÉPICES</h3><p class="name">Producteur d’aromates à confirmer</p><p class="hint">Assaisonnement local pour fondue</p></div></section>
+<p class="bottom"><strong>Chalet L’Ardoise</strong><br>Mayens-de-Chamoson · Valais<br>lardoise-swissalps.github.io/chaletlardoise/</p>
+<div class="review-notice">MAQUETTE NON VALIDÉE · NE PAS DISTRIBUER</div>
+</article>
+</body></html>
