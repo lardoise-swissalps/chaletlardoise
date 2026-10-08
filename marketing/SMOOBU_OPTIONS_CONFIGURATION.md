@@ -29,6 +29,25 @@
 | Fondue premium valaisanne 4 personnes | **À confirmer** | Par réservation | 1 | Fondue fromages locaux, pain, vin blanc, viande séchée, ail, herbes/épices, combustible |
 | Fondue premium valaisanne 8 personnes | **À confirmer** | Par réservation | 1 | Idem pour 8 |
 
+### Packs fondue — composition proposée, à valider avant la vente
+
+Le kit est **fourni une fois pour le séjour**. Le **caquelon et le réchaud sont prêtés**, restent au chalet et ne sont pas des cadeaux à emporter. Prévoir un combustible adapté et suffisant pour le service.
+
+| Pack | Fromage à fondue prêt à chauffer | Pain frais | Vin blanc valaisan | Viande séchée valaisanne | Autres |
+|---|---:|---:|---:|---:|---|
+| Simple 4 pers. | env. 800 g | Non inclus | Non inclus | Non inclus | Combustible ; caquelon et réchaud prêtés |
+| Simple 8 pers. | env. 1,6 kg | Non inclus | Non inclus | Non inclus | Combustible ; caquelon et réchaud prêtés |
+| Premium valaisan 4 pers. | env. 800 g de mélange local | Quantité adaptée à 4 | 1 × 75 cl (proposition) | 200 g (proposition) | Ail, herbes, épices, combustible ; matériel prêté |
+| Premium valaisan 8 pers. | env. 1,6 kg de mélange local | Quantité adaptée à 8 | 2 × 75 cl (proposition) | 400 g (proposition) | Ail, herbes, épices, combustible ; matériel prêté |
+
+Points à fixer avant publication :
+- Les **quatre prix de vente TTC** distincts et le coût d'approvisionnement de chaque formule.
+- Fournisseur du fromage/fromages locaux, du pain et de la viande séchée, disponibilité selon la saison et conservation au froid avant l'arrivée.
+- Vérifier qu'il s'agit de **fondue prête à chauffer**, sans ajout d'ingrédients obligatoires absents du pack simple.
+- Délai de précommande (par exemple **48 h avant l'arrivée**, à confirmer), stockage/accueil tardif, hygiène et allergènes (lait, gluten, éventuellement autres).
+- Vin : conformité des ventes d'alcool, âge légal et solution alternative sans alcool le cas échéant.
+- À Smoobu, les quatre variantes sont des articles **par réservation**, et les quantités du fromage ne dépendent pas de la durée du séjour.
+
 ### Cas particuliers à traiter avant mise en ligne
 
 - **Plus de 2 animaux :** une demande écrite et une approbation explicite sont nécessaires ; **ne pas** offrir une sélection automatique de 3+ sans validation.
