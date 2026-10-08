@@ -29,18 +29,25 @@
       pets, simple, premium
     };
   };
+  const units = {
+    fr: {night:"nuit",min:"séjour de 2 nuits minimum",pending:"prix à confirmer"},
+    en: {night:"night",min:"minimum 2-night stay",pending:"price to be confirmed"},
+    de: {night:"Nacht",min:"mindestens 2 Übernachtungen",pending:"Preis auf Anfrage"},
+    nl: {night:"nacht",min:"verblijf van minstens 2 nachten",pending:"prijs nog te bevestigen"},
+    it: {night:"notte",min:"soggiorno minimo di 2 notti",pending:"prezzo da confermare"}
+  }[language];
   const getLines = (s) => {
     const lines=[];
-    if (s.jacuzzi) lines.push(t.jacuzzi + " — CHF 70 / night (min. 2 nights)");
-    if (s.sauna) lines.push(t.sauna + " — CHF 60 / night");
-    if (s.barbecue) lines.push(t.barbecue + " — CHF 10 / night");
-    if (s.pets === "1") lines.push(t.pet1 + " — CHF 15 / night");
-    if (s.pets === "2") lines.push(t.pet2 + " — CHF 30 / night");
+    if (s.jacuzzi) lines.push(t.jacuzzi + " — CHF 70 / " + units.night + " (" + units.min + ")");
+    if (s.sauna) lines.push(t.sauna + " — CHF 60 / " + units.night);
+    if (s.barbecue) lines.push(t.barbecue + " — CHF 10 / " + units.night);
+    if (s.pets === "1") lines.push(t.pet1 + " — CHF 15 / " + units.night);
+    if (s.pets === "2") lines.push(t.pet2 + " — CHF 30 / " + units.night);
     if (s.pets === "3plus") lines.push(t.petMore);
-    if (s.simple === "4") lines.push(t.simple4 + " — price to confirm");
-    if (s.simple === "8") lines.push(t.simple8 + " — price to confirm");
-    if (s.premium === "4") lines.push(t.premium4 + " — price to confirm");
-    if (s.premium === "8") lines.push(t.premium8 + " — price to confirm");
+    if (s.simple === "4") lines.push(t.simple4 + " — " + units.pending);
+    if (s.simple === "8") lines.push(t.simple8 + " — " + units.pending);
+    if (s.premium === "4") lines.push(t.premium4 + " — " + units.pending);
+    if (s.premium === "8") lines.push(t.premium8 + " — " + units.pending);
     return lines;
   };
   function render(){
