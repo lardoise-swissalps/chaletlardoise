@@ -1,6 +1,6 @@
 # Pack fondue premium : prospection des partenaires locaux
 
-**Préparation interne uniquement. Aucun partenariat confirmé, aucune demande envoyée.**
+**Suivi au 9 octobre 2026 : demandes envoyées par Gmail à la Cave de la Lacha (regisgenoud@netplus.ch), à la Cave Constantin-Comby (constantincomby@gmail.com) et à Rostal (info@rostal.ch). Aucun partenariat ni tarif confirmé ; réponses en attente.**
 
 ## Vignerons de Chamoson
 
@@ -66,3 +66,10 @@ https://lardoise-swissalps.github.io/chaletlardoise/
 - Ajouter les noms exacts du fromager, du charcutier, du vigneron et du producteur d’épices uniquement après acceptation.
 - Faire confirmer logos, liens et description par chaque partenaire.
 - Vérifier les règles relatives au vin, les allergènes et les prix des packs avant mise en vente.
+
+## Suivi des démarches
+
+- **09.10.2026** — E-mail envoyé à Régis Genoud / Cave de la Lacha : partenariat vin blanc Fendant ou Johannisberg, packs 4 et 8, tarifs et logistique.
+- **09.10.2026** — E-mail envoyé à Cave Constantin-Comby : même démarche, sélection de cuvées adaptées à la fondue.
+- **09.10.2026** — E-mail envoyé à Rostal : mélange d'épices adapté à la fondue, conditionnement individuel et tarifs partenaires.
+- **Étape suivante** — Suivre les réponses, comparer les devis, confirmer les conditions et recueillir l'accord écrit avant d'utiliser noms/logos dans la carte aux voyageurs.
