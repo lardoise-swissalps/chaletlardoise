@@ -418,7 +418,6 @@
           </div>
           <p class="extras-stay-count" id="extras-stay-count" aria-live="polite">Indiquez les dates d’arrivée et de départ pour connaître le nombre de nuitées.</p>
         </fieldset>
-      </form>
 
       <div class="extras-group">
         <fieldset>
@@ -525,8 +524,8 @@
           <legend data-extra-text="contactDetailsTitle">3 · Vos coordonnées et précisions</legend>
           <p class="extras-caption" data-extra-text="contactDetailsHelp">Ces informations figureront dans votre e-mail de demande d’options. Elles ne sont pas envoyées automatiquement.</p>
           <div class="extras-form-grid">
-            <label class="extras-input-label"><span data-extra-text="nameLabel">Prénom et nom</span><input type="text" autocomplete="name" id="extras-name" maxlength="100" placeholder="Prénom Nom" /></label>
-            <label class="extras-input-label"><span data-extra-text="emailLabel">Adresse e-mail</span><input type="email" autocomplete="email" id="extras-email" maxlength="150" placeholder="vous@exemple.ch" /></label>
+            <label class="extras-input-label"><span data-extra-text="nameLabel">Prénom et nom</span><input type="text" autocomplete="name" id="extras-name" maxlength="100" required placeholder="Prénom Nom" /></label>
+            <label class="extras-input-label"><span data-extra-text="emailLabel">Adresse e-mail</span><input type="email" autocomplete="email" id="extras-email" maxlength="150" required placeholder="vous@exemple.ch" /></label>
             <label class="extras-input-label"><span data-extra-text="bookingRefLabel">N° de réservation Smoobu (si connu)</span><input type="text" id="extras-reference" maxlength="70" placeholder="Facultatif" /></label>
           </div>
           <label class="extras-input-label extras-notes-label"><span data-extra-text="notesLabel">Message complémentaire</span><textarea id="extras-notes" rows="3" maxlength="600" placeholder="Précisions sur le pack, horaires d’arrivée…"></textarea></label>
@@ -542,9 +541,10 @@
         </div>
         <div class="extras-summary-actions">
           <button type="button" class="extras-action secondary" id="extras-copy" data-extra-text="copy">Copier ma sélection</button>
-          <button type="button" class="extras-action" id="extras-send" data-extra-text="send">Préparer mon e-mail de demande</button>
+          <button type="button" class="extras-action" id="extras-send" data-extra-text="send">Ouvrir l’e-mail de demande</button>
         </div>
       </div>
+      </form>
       <p class="extras-disclaimer" id="extras-summary-disclaimer" role="note">Important : ce choix d’options n’est pas encore transmis automatiquement à Smoobu. Sélectionnez les extras dans le moteur de réservation s’ils y figurent, ou envoyez votre demande séparément. Seul le tarif final affiché par Smoobu fait foi.</p>
       <a class="extras-next" href="#reservation-smoobu" data-extra-text="backToBooking">↑ Revenir au formulaire de réservation</a>
     </section>
