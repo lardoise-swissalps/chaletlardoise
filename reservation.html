@@ -406,9 +406,23 @@
       <p class="extras-subtitle" data-extra-text="description">Choisissez vos options pour le séjour entier. Jacuzzi, sauna, barbecue et animaux sont facturés sur toutes les nuits réservées ; il n’est pas possible de sélectionner des jours isolés. Les packs fondue sont fournis une fois par séjour, pour 4 ou 8 personnes.</p>
 
       <p class="extras-disclaimer" data-extra-text="entireStayRule"><strong>Règle pour toutes les options :</strong> toute option avec un tarif par nuit est réservée et facturée pour la totalité des nuits du séjour. Les jours isolés ne sont pas possibles, car les équipements demandent une préparation avant l'arrivée et un entretien après le départ. Les packs fondue sont facturés une seule fois par séjour.</p>
+
+      <form class="extras-order-form" id="extras-order-form" novalidate>
+        <fieldset class="extras-order-details">
+          <legend data-extra-text="orderDetailsTitle">1 · Votre séjour</legend>
+          <p class="extras-caption" data-extra-text="orderDetailsHelp">Reprenez les dates sélectionnées dans Smoobu pour estimer vos options. Ce formulaire ne réserve pas le chalet.</p>
+          <div class="extras-form-grid">
+            <label class="extras-input-label"><span data-extra-text="arrivalLabel">Arrivée</span><input required type="date" id="extras-arrival" name="arrival" /></label>
+            <label class="extras-input-label"><span data-extra-text="departureLabel">Départ</span><input required type="date" id="extras-departure" name="departure" /></label>
+            <label class="extras-input-label"><span data-extra-text="guestLabel">Voyageurs</span><input required type="number" id="extras-guests" name="guests" min="1" max="8" value="4" inputmode="numeric" /></label>
+          </div>
+          <p class="extras-stay-count" id="extras-stay-count" aria-live="polite">Indiquez les dates d’arrivée et de départ pour connaître le nombre de nuitées.</p>
+        </fieldset>
+      </form>
+
       <div class="extras-group">
         <fieldset>
-          <legend data-extra-text="wellness">Bien-être privatif</legend>
+          <legend data-extra-text="wellness">2 · Bien-être privatif</legend>
           <p class="extras-caption" data-extra-text="wellnessNote">Jacuzzi et sauna : tarif appliqué à chaque nuit du séjour, sans possibilité de sélectionner des jours isolés.</p>
           <div class="extras-options-grid">
             <label class="extras-option" for="extras-jacuzzi">
@@ -505,15 +519,30 @@
         </fieldset>
       </div>
 
+      
+      <div class="extras-group">
+        <fieldset class="extras-order-details">
+          <legend data-extra-text="contactDetailsTitle">3 · Vos coordonnées et précisions</legend>
+          <p class="extras-caption" data-extra-text="contactDetailsHelp">Ces informations figureront dans votre e-mail de demande d’options. Elles ne sont pas envoyées automatiquement.</p>
+          <div class="extras-form-grid">
+            <label class="extras-input-label"><span data-extra-text="nameLabel">Prénom et nom</span><input type="text" autocomplete="name" id="extras-name" maxlength="100" placeholder="Prénom Nom" /></label>
+            <label class="extras-input-label"><span data-extra-text="emailLabel">Adresse e-mail</span><input type="email" autocomplete="email" id="extras-email" maxlength="150" placeholder="vous@exemple.ch" /></label>
+            <label class="extras-input-label"><span data-extra-text="bookingRefLabel">N° de réservation Smoobu (si connu)</span><input type="text" id="extras-reference" maxlength="70" placeholder="Facultatif" /></label>
+          </div>
+          <label class="extras-input-label extras-notes-label"><span data-extra-text="notesLabel">Message complémentaire</span><textarea id="extras-notes" rows="3" maxlength="600" placeholder="Précisions sur le pack, horaires d’arrivée…"></textarea></label>
+        </fieldset>
+      </div>
       <div class="extras-summary" aria-labelledby="extras-summary-heading">
         <div>
           <h3 id="extras-summary-heading" data-extra-text="summary">Votre sélection</h3>
+          <p class="extras-estimate" id="extras-estimate" aria-live="polite"></p>
+          <p class="extras-validation" id="extras-validation" role="alert" hidden></p>
           <ul id="extras-summary-list" aria-live="polite"><li>Aucune option présélectionnée.</li></ul>
           <p data-extra-text="summaryNote">Tarifs à la nuit : multipliés automatiquement par le nombre total de nuitées dans Smoobu. Packs fondue : un prix fixe par réservation, à confirmer. Hébergement non inclus dans ce récapitulatif.</p>
         </div>
         <div class="extras-summary-actions">
           <button type="button" class="extras-action secondary" id="extras-copy" data-extra-text="copy">Copier ma sélection</button>
-          <a class="extras-action" id="extras-send" href="mailto:chaletlardoise@gmail.com" data-extra-text="send">Envoyer une demande d’options</a>
+          <button type="button" class="extras-action" id="extras-send" data-extra-text="send">Préparer mon e-mail de demande</button>
         </div>
       </div>
       <p class="extras-disclaimer" id="extras-summary-disclaimer" role="note">Important : ce choix d’options n’est pas encore transmis automatiquement à Smoobu. Sélectionnez les extras dans le moteur de réservation s’ils y figurent, ou envoyez votre demande séparément. Seul le tarif final affiché par Smoobu fait foi.</p>
