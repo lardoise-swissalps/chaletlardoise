@@ -51,3 +51,22 @@
 .extras-next{display:inline-block;margin-top:1.2rem;font-size:.86rem;color:#6e4b2b;text-decoration:underline;font-weight:700}
 @media(max-width:850px){.extras-options-grid,.extras-pack-list{grid-template-columns:1fr}.extras-summary{grid-template-columns:1fr}.extras-summary-actions{flex-direction:row;flex-wrap:wrap}.extras-pet-layout{grid-template-columns:1fr}}
 @media(max-width:620px){.extras-section{width:calc(100% - 2rem);padding:1.6rem 1rem}.extras-option{min-height:unset}.extras-summary-actions{flex-direction:column}.extras-summary-actions>*{width:100%}.extras-pack p{min-height:0}}
+
+
+/* Direct booking extras: accessible stay details and full-stay quote */
+.extras-order-form{padding:0;margin:0;border:0}
+.extras-order-details{padding:1.5rem 0 0;margin-top:1.2rem;border-top:1px solid #d9d1c5}
+.extras-form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem}
+.extras-input-label{display:flex;flex-direction:column;gap:.4rem;font-family:Arial,sans-serif;font-weight:650;color:#353e38;font-size:.81rem}
+.extras-input-label input,.extras-input-label textarea{width:100%;min-height:46px;background:#fff;border:1px solid #bcb4a9;border-radius:5px;padding:.65rem .72rem;font:400 1rem Arial,sans-serif;color:#1c251f;outline-offset:3px}
+.extras-input-label input:focus-visible,.extras-input-label textarea:focus-visible{outline:2px solid #977446}
+.extras-input-label input[aria-invalid="true"]{border:2px solid #a93128}
+.extras-input-label textarea{min-height:90px;resize:vertical;line-height:1.5}
+.extras-notes-label{margin-top:1rem}
+.extras-stay-count{font:600 .9rem/1.55 Arial,sans-serif;color:#6d5536;margin:.85rem 0 0}
+.extras-estimate{font:700 1rem/1.4 Arial,sans-serif;color:#e7cf9e;margin:.7rem 0}
+.extras-validation{background:#fff1e7;color:#7e3421;font:700 .84rem/1.45 Arial,sans-serif;padding:.8rem;margin:.8rem 0;border-left:4px solid #d58762;border-radius:3px}
+.extras-summary-actions button{font:700 .86rem/1.4 Arial,sans-serif}
+.extras-group fieldset legend{font-weight:700}
+@media(max-width:900px){.extras-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.extras-form-grid{grid-template-columns:1fr}.extras-order-details{padding-top:1rem}.extras-estimate{font-size:.96rem}}
