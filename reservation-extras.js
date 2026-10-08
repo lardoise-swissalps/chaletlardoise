@@ -16,79 +16,149 @@
     it:{none:"Nessuna opzione selezionata",jacuzzi:"Jacuzzi esterna",sauna:"Sauna interna",barbecue:"Barbecue (solo maggio–ottobre)",pet1:"1 animale domestico",pet2:"2 animali domestici",petMore:"Più di 2 animali: autorizzazione necessaria",simple4:"Pacchetto fondue semplice – 4 persone",simple8:"Pacchetto fondue semplice – 8 persone",premium4:"Pacchetto fondue premium vallesano – 4 persone",premium8:"Pacchetto fondue premium vallesano – 8 persone",copy:"Copia selezione",copied:"Selezione copiata",copyFailed:"Impossibile copiare. Usa l'e-mail.",subject:"Extra richiesti – Chalet L’Ardoise",mailIntro:"Buongiorno, desidero richiedere i seguenti extra per il mio soggiorno allo Chalet L'Ardoise:",mailOutro:"Vi prego di confermare disponibilità, prezzi e pagamento. Questo messaggio non costituisce una prenotazione.",confirm:"Importante: le opzioni selezionate qui non vengono aggiunte automaticamente alla prenotazione Smoobu. Se disponibili, selezionatele di nuovo al checkout oppure inviate la richiesta separatamente. Il prezzo definitivo è quello mostrato da Smoobu."}
   };
   const t = T[language];
-  const one = (id) => document.getElementById(id);
-  const toggle = (id) => one(id)?.checked || false;
-  const getState = () => {
-    const pets = one("extras-pets")?.value || "0";
-    const simple = one("extras-fondue-simple")?.value || "0";
-    const premium = one("extras-fondue-premium")?.value || "0";
-    return {
-      jacuzzi: toggle("extras-jacuzzi"),
-      sauna: toggle("extras-sauna"),
-      barbecue: toggle("extras-barbecue"),
-      pets, simple, premium
-    };
+
+  const X = {
+    fr:{dates:"Indiquez les dates d’arrivée et de départ.",invalid:"Les dates sont incorrectes : le départ doit suivre l’arrivée.",past:"L’arrivée ne peut pas être dans le passé.",guests:"Le chalet accueille de 1 à 8 voyageurs.",jacuzzi:"Jacuzzi : 2 nuits minimum.",bbq:"Barbecue : uniquement si toutes les nuitées sont entre mai et octobre.",pack:"Pour plus de 4 voyageurs, choisissez un pack pour 8 personnes.",name:"Renseignez votre nom.",email:"Renseignez une adresse e-mail valide.",extra:"Choisissez au moins une option.",night:"nuitée",summary:"Total estimé des options tarifées",pending:"Pack fondue : prix à confirmer",noDate:"Indiquez vos dates pour calculer les options.",noExtras:"Aucune option sélectionnée.",copied:"Sélection copiée",mail:"Votre application e-mail s’ouvre : vous devrez confirmer l’envoi.",intro:"Demande d’options – Chalet L’Ardoise",notice:"Ce message est une demande d’options, ni une réservation ni un paiement. Les prix définitifs restent à confirmer ; la réservation du chalet s’effectue dans Smoobu.",copyFail:"Copie impossible. Utilisez le bouton e-mail."},
+    en:{dates:"Enter arrival and departure dates.",invalid:"Invalid dates: check-out must be after check-in.",past:"Arrival cannot be in the past.",guests:"Guest count must be between 1 and 8.",jacuzzi:"Hot tub: at least 2 nights required.",bbq:"BBQ is only available if every booked night falls between May and October.",pack:"For more than 4 guests, choose an 8-person fondue pack.",name:"Enter your name.",email:"Enter a valid email address.",extra:"Select at least one extra.",night:"night",summary:"Estimated priced extras total",pending:"Fondue pack price to be confirmed",noDate:"Enter your dates to calculate extras.",noExtras:"No extras selected.",copied:"Selection copied",mail:"Your email app will open: you must send the message yourself.",intro:"Extras request – Chalet L’Ardoise",notice:"This message is an enquiry, not a reservation or payment. Final prices must be confirmed; book the chalet separately through Smoobu.",copyFail:"Could not copy; use the email button."},
+    de:{dates:"Bitte An- und Abreise angeben.",invalid:"Ungültige Daten: Abreise muss nach Anreise liegen.",past:"Anreise darf nicht in der Vergangenheit liegen.",guests:"Es sind 1 bis 8 Gäste erlaubt.",jacuzzi:"Whirlpool: mindestens 2 Nächte.",bbq:"Grill nur möglich, wenn alle Nächte zwischen Mai und Oktober liegen.",pack:"Für mehr als 4 Gäste bitte Fondue-Paket für 8 Personen wählen.",name:"Bitte Namen angeben.",email:"Bitte gültige E-Mail-Adresse angeben.",extra:"Bitte ein Extra wählen.",night:"Nacht",summary:"Geschätzter Preis der bepreisten Extras",pending:"Fondue-Paket: Preis auf Anfrage",noDate:"Daten für die Extras-Berechnung angeben.",noExtras:"Keine Extras ausgewählt.",copied:"Auswahl kopiert",mail:"Ihr E-Mail-Programm öffnet sich; bitte die Nachricht selbst absenden.",intro:"Anfrage für Extras – Chalet L’Ardoise",notice:"Dies ist eine Anfrage, keine Buchung oder Zahlung. Endgültige Preise werden bestätigt; das Chalet wird getrennt über Smoobu gebucht.",copyFail:"Kopieren fehlgeschlagen; bitte E-Mail nutzen."},
+    nl:{dates:"Vul aankomst en vertrek in.",invalid:"Ongeldige datums: vertrek moet na aankomst zijn.",past:"Aankomst kan niet in het verleden liggen.",guests:"Van 1 tot 8 gasten toegestaan.",jacuzzi:"Jacuzzi: minimaal 2 nachten.",bbq:"Barbecue kan alleen als alle nachten tussen mei en oktober vallen.",pack:"Bij meer dan 4 gasten een pakket voor 8 personen kiezen.",name:"Vul uw naam in.",email:"Vul een geldig e-mailadres in.",extra:"Kies minstens één extra.",night:"nacht",summary:"Geschat totaal voor geprijsde extra's",pending:"Fonduepakket: prijs nog te bevestigen",noDate:"Voer datums in om kosten te berekenen.",noExtras:"Geen extra's gekozen.",copied:"Selectie gekopieerd",mail:"Uw e-mailapp wordt geopend; verstuur het bericht zelf.",intro:"Aanvraag extra's – Chalet L’Ardoise",notice:"Dit is een aanvraag, geen boeking of betaling. Definitieve prijzen moeten worden bevestigd; boek het chalet apart via Smoobu.",copyFail:"Kopiëren mislukt; gebruik e-mail."},
+    it:{dates:"Inserisci le date di arrivo e partenza.",invalid:"Date non valide: la partenza deve seguire l'arrivo.",past:"L'arrivo non può essere nel passato.",guests:"Sono ammessi da 1 a 8 ospiti.",jacuzzi:"Jacuzzi: minimo 2 notti.",bbq:"Barbecue disponibile solo se tutte le notti sono tra maggio e ottobre.",pack:"Per più di 4 ospiti scegli il pacchetto da 8.",name:"Inserisci il nome.",email:"Inserisci una e-mail valida.",extra:"Seleziona almeno un extra.",night:"notte",summary:"Totale stimato degli extra con prezzo",pending:"Pacchetto fondue: prezzo da confermare",noDate:"Inserisci le date per calcolare gli extra.",noExtras:"Nessun extra selezionato.",copied:"Selezione copiata",mail:"Si apre il programma e-mail; devi inviare tu il messaggio.",intro:"Richiesta extra – Chalet L’Ardoise",notice:"Questa è una richiesta, non una prenotazione né un pagamento. Prezzi finali da confermare; prenota lo chalet separatamente con Smoobu.",copyFail:"Copia impossibile; usa il pulsante e-mail."}
   };
-  const units = {
-    fr: {night:"nuit",min:"séjour de 2 nuits minimum",pending:"prix à confirmer",allNights:"obligatoire pour toutes les nuitées du séjour"},
-    en: {night:"night",min:"minimum 2-night stay",pending:"price to be confirmed",allNights:"applies to every night of the booking"},
-    de: {night:"Nacht",min:"mindestens 2 Übernachtungen",pending:"Preis auf Anfrage",allNights:"für alle Nächte der Buchung"},
-    nl: {night:"nacht",min:"verblijf van minstens 2 nachten",pending:"prijs nog te bevestigen",allNights:"voor alle nachten van het verblijf"},
-    it: {night:"notte",min:"soggiorno minimo di 2 notti",pending:"prezzo da confermare",allNights:"per tutte le notti della prenotazione"}
-  }[language];
-  const getLines = (s) => {
-    const lines=[];
-    if (s.jacuzzi) lines.push(t.jacuzzi + " — CHF 70 / " + units.night + " (" + units.min + " ; " + units.allNights + ")");
-    if (s.sauna) lines.push(t.sauna + " — CHF 60 / " + units.night + " (" + units.allNights + ")");
-    if (s.barbecue) lines.push(t.barbecue + " — CHF 10 / " + units.night + " (" + units.allNights + ")");
-    if (s.pets === "1") lines.push(t.pet1 + " — CHF 15 / " + units.night + " (" + units.allNights + ")");
-    if (s.pets === "2") lines.push(t.pet2 + " — CHF 30 / " + units.night + " (" + units.allNights + ")");
-    if (s.pets === "3plus") lines.push(t.petMore);
-    if (s.simple === "4") lines.push(t.simple4 + " — " + units.pending);
-    if (s.simple === "8") lines.push(t.simple8 + " — " + units.pending);
-    if (s.premium === "4") lines.push(t.premium4 + " — " + units.pending);
-    if (s.premium === "8") lines.push(t.premium8 + " — " + units.pending);
-    return lines;
+  const l=X[language];
+  const byId=id=>document.getElementById(id);
+  const yes=id=>Boolean(byId(id)?.checked);
+  const getDate=str=>{
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(str||""))return null;
+    const d=new Date(str+"T12:00:00Z");
+    if(Number.isNaN(d.getTime())||d.toISOString().slice(0,10)!==str)return null;
+    return Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate());
+  };
+  const localToday=()=>{
+    const d=new Date(),pad=n=>String(n).padStart(2,"0");
+    return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+  };
+  const stay=()=>{
+    const arrival=byId("extras-arrival")?.value||"",departure=byId("extras-departure")?.value||"";
+    const a=getDate(arrival),b=getDate(departure);
+    return {arrival,departure,a,b,nights:a!==null&&b!==null&&b>a?(b-a)/86400000:null};
+  };
+  const inSeason=d=>{
+    if(d.nights===null)return false;
+    for(let day=0;day<d.nights;day++){
+      const m=new Date(d.a+86400000*day).getUTCMonth()+1;
+      if(m<5||m>10)return false;
+    }
+    return true;
+  };
+  const state=()=>({
+    jacuzzi:yes("extras-jacuzzi"),sauna:yes("extras-sauna"),barbecue:yes("extras-barbecue"),
+    pets:byId("extras-pets")?.value||"0",simple:byId("extras-fondue-simple")?.value||"0",
+    premium:byId("extras-fondue-premium")?.value||"0"
+  });
+  const chf=n=>new Intl.NumberFormat(language==="fr"?"fr-CH":"en-CH",{style:"currency",currency:"CHF",minimumFractionDigits:0,maximumFractionDigits:0}).format(n);
+  function calculate(){
+    const d=stay(),s=state(),guests=Number(byId("extras-guests")?.value||0),rows=[];
+    const add=(title,rate)=>rows.push({title,rate,total:d.nights===null?null:rate*d.nights});
+    if(s.jacuzzi)add(t.jacuzzi,70);
+    if(s.sauna)add(t.sauna,60);
+    if(s.barbecue)add(t.barbecue,10);
+    if(s.pets==="1")add(t.pet1,15);
+    if(s.pets==="2")add(t.pet2,30);
+    if(s.pets==="3plus")rows.push({title:t.petMore,rate:null,total:null});
+    if(s.simple!=="0")rows.push({title:s.simple==="4"?t.simple4:t.simple8,rate:null,total:null});
+    if(s.premium!=="0")rows.push({title:s.premium==="4"?t.premium4:t.premium8,rate:null,total:null});
+    const errors=[];
+    if(!d.arrival||!d.departure)errors.push(l.dates);
+    else if(d.nights===null)errors.push(l.invalid);
+    else if(d.arrival<localToday())errors.push(l.past);
+    if(!Number.isInteger(guests)||guests<1||guests>8)errors.push(l.guests);
+    if(s.jacuzzi&&d.nights!==null&&d.nights<2)errors.push(l.jacuzzi);
+    if(s.barbecue&&d.nights!==null&&!inSeason(d))errors.push(l.bbq);
+    if(guests>4&&(s.simple==="4"||s.premium==="4"))errors.push(l.pack);
+    return {d,s,guests,rows,errors,total:rows.reduce((sum,r)=>sum+(r.total||0),0)};
+  }
+  const reportError=msg=>{
+    const node=byId("extras-validation");if(!node)return;
+    node.textContent=msg||"";node.hidden=!msg;
   };
   function render(){
-    const lines=getLines(getState());
-    const list=one("extras-summary-list");
-    if(!list) return;
-    list.replaceChildren();
-    for(const name of (lines.length?lines:[t.none])){
-      const li=document.createElement("li");
-      li.textContent=name;
-      list.append(li);
+    const q=calculate(),ul=byId("extras-summary-list");
+    if(ul){
+      ul.replaceChildren();
+      for(const r of q.rows){
+        const li=document.createElement("li");
+        li.textContent=r.title+" — "+(r.rate===null?l.pending:q.d.nights===null?chf(r.rate)+"/"+l.night:chf(r.rate)+" × "+q.d.nights+" = "+chf(r.total));
+        ul.append(li);
+      }
+      if(!q.rows.length){const li=document.createElement("li");li.textContent=l.noExtras;ul.append(li);}
     }
-    const mail=one("extras-send");
-    if(mail){
-      const body = [t.mailIntro, "", ...(lines.length?lines:["–"]), "",t.mailOutro].join("\n");
-      mail.href="mailto:chaletlardoise@gmail.com?subject="+encodeURIComponent(t.subject)+"&body="+encodeURIComponent(body);
-    }
-    one("extras-summary-disclaimer").textContent=t.confirm;
-    const approval=one("extras-pet-approval");
-    if(approval) approval.hidden=getState().pets!=="3plus";
+    const days=byId("extras-stay-count");
+    if(days)days.textContent=q.d.nights===null?l.noDate:q.d.nights+" "+l.night+(q.d.nights>1&&language==="fr"?"s":"")+" · "+t.confirm.split(".")[0]+".";
+    const estimate=byId("extras-estimate");
+    if(estimate)estimate.textContent=q.d.nights===null?l.noDate:l.summary+" : "+chf(q.total)+(q.rows.some(r=>r.rate===null)?" · "+l.pending:"");
+    const approval=byId("extras-pet-approval");if(approval)approval.hidden=q.s.pets!=="3plus";
+    const dep=byId("extras-departure");if(dep&&q.d.arrival)dep.min=q.d.arrival;
+    const explain=byId("extras-summary-disclaimer");if(explain)explain.textContent=t.confirm;
+    reportError("");
   }
-  for(const id of ["extras-jacuzzi","extras-sauna","extras-barbecue","extras-pets","extras-fondue-simple","extras-fondue-premium"]){
-    const el=one(id);
-    if(!el) continue;
-    el.addEventListener("change",()=>{
-      if(id==="extras-fondue-simple" && el.value!=="0") one("extras-fondue-premium").value="0";
-      if(id==="extras-fondue-premium" && el.value!=="0") one("extras-fondue-simple").value="0";
+  function validate(emailRequired){
+    const q=calculate(),issues=[...q.errors];
+    if(!q.rows.length)issues.push(l.extra);
+    if(emailRequired){
+      if(!byId("extras-name")?.value.trim())issues.push(l.name);
+      const em=byId("extras-email");
+      if(!em?.value.trim()||!em.checkValidity())issues.push(l.email);
+    }
+    if(issues.length){
+      reportError(issues.join(" "));
+      byId("extras-validation")?.scrollIntoView?.({block:"nearest",behavior:"smooth"});
+      return null;
+    }
+    reportError("");
+    return q;
+  }
+  function message(q){
+    const lines=[l.intro,"","Arrivée / Check-in: "+q.d.arrival,"Départ / Check-out: "+q.d.departure,
+      "Nuitées / Nights: "+q.d.nights,"Voyageurs / Guests: "+q.guests,
+      "Nom / Name: "+(byId("extras-name")?.value.trim()||"-"),
+      "E-mail: "+(byId("extras-email")?.value.trim()||"-"),
+      "Référence Smoobu: "+(byId("extras-reference")?.value.trim()||"-"),"",
+      "Options choisies:"];
+    for(const r of q.rows)lines.push("• "+r.title+" — "+(r.rate===null?l.pending:chf(r.rate)+" × "+q.d.nights+" = "+chf(r.total)));
+    lines.push("",l.summary+": "+chf(q.total),l.pending+" (si commandé)");
+    const notes=byId("extras-notes")?.value.trim();
+    if(notes)lines.push("","Notes: "+notes);
+    lines.push("",l.notice);
+    return lines.join("\n");
+  }
+  for(const id of ["extras-arrival","extras-departure","extras-guests","extras-name","extras-email",
+    "extras-reference","extras-notes","extras-jacuzzi","extras-sauna","extras-barbecue","extras-pets",
+    "extras-fondue-simple","extras-fondue-premium"]){
+    const node=byId(id);
+    if(!node)continue;
+    const change=()=>{
+      if(id==="extras-fondue-simple"&&node.value!=="0")byId("extras-fondue-premium").value="0";
+      if(id==="extras-fondue-premium"&&node.value!=="0")byId("extras-fondue-simple").value="0";
       render();
-    });
+    };
+    node.addEventListener("change",change);
+    if(node.tagName==="INPUT"||node.tagName==="TEXTAREA")node.addEventListener("input",change);
   }
-  one("extras-copy")?.addEventListener("click",async()=>{
-    const lines=getLines(getState());
-    const msg=[t.mailIntro,"",...(lines.length?lines:["–"]),"",t.mailOutro].join("\n");
-    const btn=one("extras-copy");
+  const today=localToday();
+  for(const id of ["extras-arrival","extras-departure"]){const node=byId(id);if(node)node.min=today;}
+  byId("extras-order-form")?.addEventListener("submit",event=>event.preventDefault());
+  byId("extras-send")?.addEventListener("click",()=>{
+    const q=validate(true);if(!q)return;
+    location.href="mailto:chaletlardoise@gmail.com?subject="+encodeURIComponent(l.intro)+"&body="+encodeURIComponent(message(q));
+    reportError(l.mail);
+  });
+  byId("extras-copy")?.addEventListener("click",async()=>{
+    const q=validate(false);if(!q)return;
     try{
-      await navigator.clipboard.writeText(msg);
-      btn.textContent=t.copied;
-      window.setTimeout(()=>btn.textContent=t.copy,2200);
-    } catch {
-      btn.textContent=t.copyFailed;
-    }
+      await navigator.clipboard.writeText(message(q));
+      byId("extras-copy").textContent=l.copied;
+      setTimeout(()=>byId("extras-copy").textContent=t.copy,2400);
+    }catch{reportError(l.copyFail);}
   });
   render();
 })();
