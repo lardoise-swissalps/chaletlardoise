@@ -1,0 +1,53 @@
+
+/* Chalet L'Ardoise — options de séjour (préparation non publiée) */
+.extras-section{width:min(1420px,calc(100% - 8vw));margin:0 auto 1rem;padding:2.5rem clamp(1.25rem,4vw,3.5rem);background:#f3efe7;border:1px solid rgba(16,19,17,.11);border-top:3px solid #b79059}
+.extras-eyebrow{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#8a6334;font-weight:750;margin:0 0 .7rem}
+.extras-section h2{font:400 clamp(2rem,3.5vw,3.5rem)/1.07 "Iowan Old Style",Palatino,Georgia,serif;letter-spacing:-.025em;margin:0 0 .9rem;max-width:18ch}
+.extras-subtitle{max-width:70ch;color:#595e58;font-size:.99rem;margin:0 0 1.4rem}
+.extras-section fieldset{min-width:0;margin:0;padding:0;border:0}
+.extras-section legend{font-size:1.02rem;font-weight:750;margin:0 0 .8rem;padding:0}
+.extras-caption{font-size:.84rem;color:#6a6b65;margin:0 0 .9rem}
+.extras-group{padding-top:1.7rem;margin-top:1.4rem;border-top:1px solid #d9d1c5}
+.extras-options-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}
+.extras-option{position:relative;background:#fff;border:1px solid #d4cbbd;min-height:124px;border-radius:8px;display:flex;align-items:flex-start;gap:.85rem;padding:1.25rem;cursor:pointer;transition:border-color .15s,box-shadow .15s;user-select:none}
+.extras-option:hover{border-color:#a78658}
+.extras-option:focus-within{outline:2px solid #8a6334;outline-offset:2px}
+.extras-option:has(input:checked){border:2px solid #997342;box-shadow:0 4px 14px rgba(70,48,23,.08);padding:calc(1.25rem - 1px)}
+.extras-option input{appearance:none;flex:none;width:21px;height:21px;border:1.5px solid #997342;border-radius:4px;margin:.08rem 0 0;display:grid;place-content:center;background:white}
+.extras-option input:checked{background:#8a6334}
+.extras-option input:checked::before{content:"✓";font-size:15px;font-weight:700;color:white}
+.extras-option-body{display:block;flex:1;min-width:0}
+.extras-option-top{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:space-between;align-items:center}
+.extras-option-title{font-weight:750;color:#101311}
+.extras-option-price{font-size:.79rem;color:#8a6334;font-weight:700}
+.extras-option-desc{display:block;margin-top:.45rem;font-size:.84rem;line-height:1.46;color:#676861}
+.extras-option-note{display:block;margin-top:.55rem;font-size:.76rem;color:#736b5f}
+.extras-tag{display:inline-block;padding:.2rem .5rem;border-radius:99px;background:#f0e6d6;color:#72542f;font-size:.68rem;font-weight:750;letter-spacing:.04em}
+.extras-pet-layout{display:grid;grid-template-columns:minmax(180px,270px) 1fr;gap:1.2rem;align-items:start}
+.extras-field-label{font-size:.78rem;font-weight:700;display:block;margin-bottom:.5rem;color:#343a35}
+.extras-pet-layout select,.extras-section select{display:block;width:100%;min-height:48px;appearance:auto;border:1px solid #c8beb1;border-radius:5px;background:white;color:#101311;padding:.6rem .75rem;font-size:1rem}
+.extras-alert{background:#fff6e8;border-left:3px solid #b88a43;padding:.8rem 1rem;font-size:.83rem;color:#604c31}
+.extras-pack-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.extras-pack{border:1px solid #d4cbbd;background:#fff;border-radius:8px;padding:1.35rem}
+.extras-pack.premium{background:linear-gradient(150deg,#fffaf2,#fff);border-color:#c6a46d}
+.extras-pack h3{font:400 1.75rem/1.15 "Iowan Old Style",Palatino,Georgia,serif;margin:.6rem 0}
+.extras-pack p{font-size:.87rem;color:#62635e;margin:0 0 1rem;min-height:3.8em}
+.extras-pack ul{margin:.4rem 0 1.2rem;padding-left:1.2rem;color:#444d46;font-size:.85rem;line-height:1.65}
+.extras-pack label{display:block;color:#4a4e48;font-size:.77rem;font-weight:700;margin-bottom:.45rem}
+.extras-pack select{max-width:100%;margin-bottom:.5rem}
+.extras-packs-note{color:#6d6a61;font-size:.79rem;margin:1rem 0 0}
+.extras-summary{background:#1a211d;border-radius:8px;margin-top:2rem;padding:1.55rem;color:#fff;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.2rem;align-items:center}
+.extras-summary h3{font:400 1.65rem/1.2 "Iowan Old Style",Palatino,Georgia,serif;margin:0 0 .6rem}
+.extras-summary p{margin:.3rem 0;color:#d3d7d1;font-size:.84rem}
+.extras-summary ul{margin:0 0 .4rem;padding-left:1.1rem;line-height:1.65;color:#fff;font-size:.86rem}
+.extras-summary-actions{display:flex;flex-direction:column;gap:.5rem;min-width:210px}
+.extras-action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid #d4b17c;background:#bc935d;color:#101311;border-radius:3px;padding:.65rem .8rem;font-weight:750;cursor:pointer;font-size:.85rem;line-height:1.3;text-align:center}
+.extras-action:hover{background:#d2ab78}
+.extras-action.secondary{background:transparent;color:#f5e8d4;border-color:#b0aa9e}
+.extras-action.secondary:hover{background:#313b33}
+.extras-disclaimer{border-left:3px solid #b79059;padding:.85rem 1rem;margin:1.5rem 0 0;background:#fff;color:#534b40;font-size:.82rem;line-height:1.55}
+.extras-disclaimer strong{color:#302a21}
+.extras-section .extras-faint{font-size:.77rem;color:#6b665e;margin:.65rem 0 0}
+.extras-next{display:inline-block;margin-top:1.2rem;font-size:.86rem;color:#6e4b2b;text-decoration:underline;font-weight:700}
+@media(max-width:850px){.extras-options-grid,.extras-pack-list{grid-template-columns:1fr}.extras-summary{grid-template-columns:1fr}.extras-summary-actions{flex-direction:row;flex-wrap:wrap}.extras-pet-layout{grid-template-columns:1fr}}
+@media(max-width:620px){.extras-section{width:calc(100% - 2rem);padding:1.6rem 1rem}.extras-option{min-height:unset}.extras-summary-actions{flex-direction:column}.extras-summary-actions>*{width:100%}.extras-pack p{min-height:0}}
