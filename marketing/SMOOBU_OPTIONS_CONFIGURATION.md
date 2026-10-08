@@ -2,6 +2,15 @@
 
 **Statut : à configurer et à tester avant publication.** Le sélecteur d'options du site est actuellement une interface de préparation : il ne transmet pas lui-même les achats ou les prix à Smoobu. Aucun extra n'a été créé dans Smoobu par cette modification GitHub.
 
+## Règle contractuelle impérative : toute la durée du séjour
+
+- **Tous les suppléments facturés à la nuit (jacuzzi, sauna, barbecue, animaux)** doivent être **optionnels à l’achat, mais indivisibles dans le temps** : s’ils sont choisis, ils sont facturés pour **chaque nuitée de la réservation**. Aucun jour isolé, fraction de séjour ou nombre de jours au choix. Ce choix est motivé par la préparation avant l’arrivée et le nettoyage/entretien après le départ.
+- Exemple **6 nuitées** : sauna 6 × 60 = **360 CHF** ; jacuzzi 6 × 70 = **420 CHF** ; barbecue 6 × 10 = **60 CHF** (en saison) ; 1 animal 6 × 15 = **90 CHF** ; 2 animaux 6 × 30 = **180 CHF**. **Attention : 6 jours calendaires ne représentent pas nécessairement 6 nuits ; seules les nuitées du séjour sont facturées.**
+- **Packs fondue** : à commander pour le séjour complet, livrés une fois (pas une livraison quotidienne). Facturation **unique par réservation**, format 4 ou 8 convives.
+- Dans Smoobu, sélectionner **mode de calcul « par nuit »** pour chaque supplément à la nuit, et **« par réservation »** pour les packs fondue. Ne pas utiliser un article « par réservation » à montant quotidien, qui ne respecterait pas cette règle.
+- Activer l’achat **dans le moteur de réservations** en priorité. Ne pas activer les commandes tardives dans le **Guide voyageur** sans procédures compatibles avec la préparation en amont et le délai minimum d’annonce.
+- **Vérification avant publication obligatoire :** afficher le prix total exact de chaque supplément, et confirmer qu’aucune interface n’offre la sélection d’une seule journée ou d’un nombre limité de nuits.
+
 ## Procédure Smoobu
 
 1. Ouvrir **Configuration → Moteur de réservations → Paramètres des propriétés**.
@@ -11,10 +20,10 @@
 
 | Article Smoobu recommandé | Prix | Calcul | Quantité max | Conditions |
 |---|---:|---|---:|---|
-| Jacuzzi extérieur | 70 CHF | Par nuit | 1 | Réservé pour tout le séjour ; minimum 2 nuits à vérifier à part |
-| Sauna intérieur | 60 CHF | Par nuit | 1 | Réservé pour tout le séjour |
-| Barbecue | 10 CHF | Par nuit | 1 | Seulement mai–octobre ; **ne pas laisser disponible en hiver** sans contrôle saisonnier |
-| Animal domestique | 15 CHF | Par nuit | 2 | Quantité par animal : 0, 1 ou 2 |
+| Jacuzzi extérieur | 70 CHF | Par nuit (toutes les nuitées) | 1 | Séjour entier obligatoire ; minimum 2 nuits à vérifier à part |
+| Sauna intérieur | 60 CHF | Par nuit (toutes les nuitées) | 1 | Séjour entier obligatoire, aucune sélection de jours isolés |
+| Barbecue | 10 CHF | Par nuit (toutes les nuitées) | 1 | Séjour entier obligatoire ; **seulement mai–octobre** et pour dates entièrement éligibles |
+| Animal domestique | 15 CHF | Par nuit (toutes les nuitées) | 2 | Quantité par animal : 0, 1 ou 2 ; séjour entier obligatoire |
 | Fondue simple 4 personnes | **À confirmer** | Par réservation | 1 | Fondue + combustible ; réchaud/caquelon mis à disposition |
 | Fondue simple 8 personnes | **À confirmer** | Par réservation | 1 | Idem pour 8 |
 | Fondue premium valaisanne 4 personnes | **À confirmer** | Par réservation | 1 | Fondue fromages locaux, pain, vin blanc, viande séchée, ail, herbes/épices, combustible |
@@ -32,7 +41,7 @@
 
 ### Tests d'acceptation
 
-- Réserver un séjour éligible de 2–4 nuits ; vérifier prix des extras (par nuit ou par séjour) et calendrier Smoobu.
+- Réserver un séjour éligible de 2–4 nuits puis **6 nuitées** ; vérifier que tous les extras à la nuit sont facturés pour chaque nuit (et qu’aucune option d’utilisation partielle n’apparaît). Vérifier également le calendrier Smoobu.
 - Refuser barbecue hors mai–octobre, et refuser jacuzzi sur une réservation d'une nuit selon la règle choisie.
 - Contrôler qu'un animal compte 15 CHF/nuit et deux animaux 30 CHF/nuit.
 - Vérifier l'affichage de chaque pack fondue et l'absence de commande simultanée incompatible.
