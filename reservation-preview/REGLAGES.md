@@ -84,6 +84,33 @@ Sources officielles :
 
 `node --test reservation-preview/booking-core.test.cjs`
 
+## Informations de séjour et présentation — 9 octobre 2026
+
+Le formulaire Smoobu constitue le parcours principal. Le simulateur séparé est
+facultatif et repliable ; il ne transmet pas les options au panier Smoobu.
+Le ménage de CHF 290 par réservation est expliqué comme une ligne comprise
+dans le total final, sans modification du tarif Smoobu.
+
+La page `infos-sejour/` reprend les informations pratiques et la caution déjà
+prévue pour les réservations directes (CHF 480, payable à l’arrivée, restitution
+sous 7 jours après vérification). Les réservations sur les plateformes restent
+soumises aux conditions de leur propre offre.
+
+La politique d’annulation du moteur Smoobu était vide lors de la vérification.
+Aucun délai, frais de résiliation ou caractère non remboursable n’a été inventé.
+Il faut renseigner la politique choisie par le propriétaire, puis les liens
+contractuels correspondants dans Smoobu. La page d’informations pratiques
+ne constitue pas des conditions générales de location complètes.
+
+Les quatre prix de packs fondue restent `null`, et leur composition est à
+confirmer avant commande. Les descriptifs publics n’annoncent plus les quantités
+ou partenariats qui n’ont pas été confirmés.
+
+Le virement demeure le moyen de paiement actif. La connexion Stripe de Smoobu
+fonctionne en mode réel, sans mode de test carte natif : ne pas annoncer des
+paiements carte ou Apple Pay disponibles avant connexion et vérification.
+Ne pas effectuer de vraie réservation pour simuler une démonstration.
+
 Devis client vérifié pour le 23–25 novembre 2026, 4 voyageurs : prix de base
 717 CHF + nettoyage 290 CHF + jacuzzi 140 CHF + sauna 120 CHF + deux animaux
 60 CHF = **1 327 CHF**. Les extras totalisent **320 CHF** pour deux nuits.
