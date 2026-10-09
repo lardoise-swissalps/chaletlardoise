@@ -13,10 +13,29 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL_PAGE = "page-B7Ju9-4Y.js"
 ORIGINAL_BOOT = "index-D-wQDluK.js"
+ORIGINAL_LAYOUT = "layout-segment-context-DBvBeHfX.js"
 page = (ROOT / "assets" / ORIGINAL_PAGE).read_text()
 index = (ROOT / "index.html").read_text()
+
+def synchronize_module_graph(page_name, index):
+    # The layout imports the bootstrap's exported context. Rename both ends of
+    # that cycle; otherwise loading the old bootstrap restores its old page map.
+    boot_name = "index-chalet-20261009.js"
+    layout_name = "layout-segment-context-chalet-20261009.js"
+    boot = (ROOT / "assets" / ORIGINAL_BOOT).read_text()
+    boot = boot.replace(ORIGINAL_PAGE, page_name).replace(ORIGINAL_LAYOUT, layout_name)
+    layout = (ROOT / "assets" / ORIGINAL_LAYOUT).read_text().replace(ORIGINAL_BOOT, boot_name)
+    (ROOT / "assets" / boot_name).write_text(boot)
+    (ROOT / "assets" / layout_name).write_text(layout)
+    index = index.replace(ORIGINAL_PAGE, page_name).replace(ORIGINAL_BOOT, boot_name)
+    index = index.replace("index-4fe4a3d89d.js", boot_name).replace(ORIGINAL_LAYOUT, layout_name)
+    (ROOT / "index.html").write_text(index)
+    print("Synchronized module graph:", page_name, boot_name, layout_name)
+
 if "Notes consultées le 9 octobre 2026." in index:
-    print("Site copy migration already applied; no files changed.")
+    page_name = re.search(r"assets/(page-[a-f0-9]{10}\.js)", index).group(1)
+    synchronize_module_graph(page_name, index)
+    print("Site copy migration already applied.")
     sys.exit(0)
 
 def replace_once(text, old, new):
@@ -95,9 +114,4 @@ index = replace_once(index, '<a href="#faq">Questions fréquentes</a></nav>', '<
 
 page_name = "page-" + hashlib.sha256(page.encode()).hexdigest()[:10] + ".js"
 (ROOT / "assets" / page_name).write_text(page)
-boot = (ROOT / "assets" / ORIGINAL_BOOT).read_text().replace(ORIGINAL_PAGE, page_name)
-boot_name = "index-" + hashlib.sha256(boot.encode()).hexdigest()[:10] + ".js"
-(ROOT / "assets" / boot_name).write_text(boot)
-index = index.replace(ORIGINAL_PAGE, page_name).replace(ORIGINAL_BOOT, boot_name)
-(ROOT / "index.html").write_text(index)
-print("Refreshed:", page_name, boot_name, "index.html")
+synchronize_module_graph(page_name, index)
