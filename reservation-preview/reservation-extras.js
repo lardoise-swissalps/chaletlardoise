@@ -3,6 +3,8 @@
    Do NOT inject extras into iframe: cross-origin checkout would ignore them. */
 (() => {
   "use strict";
+  const core = window.LArdoiseBooking;
+  const config = core.config;
   const langParam = new URLSearchParams(location.search).get("lang");
   let preferred = null;
   try { preferred = localStorage.getItem("lardoise-language"); } catch {}
@@ -27,52 +29,39 @@
   const l=X[language];
   const byId=id=>document.getElementById(id);
   const yes=id=>Boolean(byId(id)?.checked);
-  const getDate=str=>{
-    if(!/^\d{4}-\d{2}-\d{2}$/.test(str||""))return null;
-    const d=new Date(str+"T12:00:00Z");
-    if(Number.isNaN(d.getTime())||d.toISOString().slice(0,10)!==str)return null;
-    return Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate());
-  };
-  const localToday=()=>{
-    const d=new Date(),pad=n=>String(n).padStart(2,"0");
-    return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
-  };
+  const localToday=core.today;
   const stay=()=>{
     const arrival=byId("extras-arrival")?.value||"",departure=byId("extras-departure")?.value||"";
-    const a=getDate(arrival),b=getDate(departure);
-    return {arrival,departure,a,b,nights:a!==null&&b!==null&&b>a?(b-a)/86400000:null};
+    return core.stay(arrival,departure);
   };
-  const inSeason=d=>{
-    if(d.nights===null)return false;
-    for(let day=0;day<d.nights;day++){
-      const m=new Date(d.a+86400000*day).getUTCMonth()+1;
-      if(m<5||m>10)return false;
-    }
-    return true;
-  };
+  const inSeason=core.barbecueAvailable;
   const state=()=>({
     jacuzzi:yes("extras-jacuzzi"),sauna:yes("extras-sauna"),barbecue:yes("extras-barbecue"),
     pets:byId("extras-pets")?.value||"0",simple:byId("extras-fondue-simple")?.value||"0",
     premium:byId("extras-fondue-premium")?.value||"0"
   });
-  const chf=n=>new Intl.NumberFormat(language==="fr"?"fr-CH":"en-CH",{style:"currency",currency:"CHF",minimumFractionDigits:0,maximumFractionDigits:0}).format(n);
+  const chf=n=>new Intl.NumberFormat(language==="fr"?"fr-CH":"en-CH",{style:"currency",currency:config.currency,minimumFractionDigits:0,maximumFractionDigits:2}).format(n);
   function calculate(){
     const d=stay(),s=state(),guests=Number(byId("extras-guests")?.value||0),rows=[];
-    const add=(title,rate)=>rows.push({title,rate,total:d.nights===null?null:rate*d.nights});
-    if(s.jacuzzi)add(t.jacuzzi,70);
-    if(s.sauna)add(t.sauna,60);
-    if(s.barbecue)add(t.barbecue,10);
-    if(s.pets==="1")add(t.pet1,15);
-    if(s.pets==="2")add(t.pet2,30);
-    if(s.pets==="3plus")rows.push({title:t.petMore,rate:null,total:null});
-    if(s.simple!=="0")rows.push({title:s.simple==="4"?t.simple4:t.simple8,rate:null,total:null});
-    if(s.premium!=="0")rows.push({title:s.premium==="4"?t.premium4:t.premium8,rate:null,total:null});
+    const add=(title,rate)=>rows.push({title,rate,basis:"night",total:d.nights===null?null:rate*d.nights});
+    const pack=(title,key)=>{
+      const rate=config.fondue[key];
+      rows.push({title,rate,basis:"booking",total:rate});
+    };
+    if(s.jacuzzi)add(t.jacuzzi,config.nightly.jacuzzi);
+    if(s.sauna)add(t.sauna,config.nightly.sauna);
+    if(s.barbecue)add(t.barbecue,config.nightly.barbecue);
+    if(s.pets==="1")add(t.pet1,config.nightly.pet);
+    if(s.pets==="2")add(t.pet2,config.nightly.pet*2);
+    if(s.pets==="3plus")rows.push({title:t.petMore,rate:null,total:null,pending:t.petMore});
+    if(s.simple!=="0")pack(s.simple==="4"?t.simple4:t.simple8,"simple"+s.simple);
+    if(s.premium!=="0")pack(s.premium==="4"?t.premium4:t.premium8,"premium"+s.premium);
     const errors=[];
     if(!d.arrival||!d.departure)errors.push(l.dates);
     else if(d.nights===null)errors.push(l.invalid);
     else if(d.arrival<localToday())errors.push(l.past);
-    if(!Number.isInteger(guests)||guests<1||guests>8)errors.push(l.guests);
-    if(s.jacuzzi&&d.nights!==null&&d.nights<2)errors.push(l.jacuzzi);
+    if(!Number.isInteger(guests)||guests<1||guests>config.maxGuests)errors.push(l.guests);
+    if(s.jacuzzi&&d.nights!==null&&d.nights<config.jacuzziMinNights)errors.push(l.jacuzzi);
     if(s.barbecue&&d.nights!==null&&!inSeason(d))errors.push(l.bbq);
     if(guests>4&&(s.simple==="4"||s.premium==="4"))errors.push(l.pack);
     return {d,s,guests,rows,errors,total:rows.reduce((sum,r)=>sum+(r.total||0),0)};
@@ -81,24 +70,45 @@
     const node=byId("extras-validation");if(!node)return;
     node.textContent=msg||"";node.hidden=!msg;
   };
+  const rowPrice=(r,q)=>r.rate===null?(r.pending||l.pending):r.basis==="booking"?chf(r.rate)+" × 1 = "+chf(r.total):q.d.nights===null?chf(r.rate)+"/"+l.night:chf(r.rate)+" × "+q.d.nights+" = "+chf(r.total);
   function render(){
     const q=calculate(),ul=byId("extras-summary-list");
     if(ul){
       ul.replaceChildren();
       for(const r of q.rows){
         const li=document.createElement("li");
-        li.textContent=r.title+" — "+(r.rate===null?l.pending:q.d.nights===null?chf(r.rate)+"/"+l.night:chf(r.rate)+" × "+q.d.nights+" = "+chf(r.total));
+        li.textContent=r.title+" — "+rowPrice(r,q);
         ul.append(li);
       }
       if(!q.rows.length){const li=document.createElement("li");li.textContent=l.noExtras;ul.append(li);}
     }
     const days=byId("extras-stay-count");
-    if(days)days.textContent=q.d.nights===null?l.noDate:q.d.nights+" "+l.night+(q.d.nights>1&&language==="fr"?"s":"")+" · "+t.confirm.split(".")[0]+".";
+    if(days)days.textContent=q.d.nights===null?l.noDate:q.d.nights+" "+l.night+(q.d.nights>1&&language==="fr"?"s":"");
     const estimate=byId("extras-estimate");
-    if(estimate)estimate.textContent=q.d.nights===null?l.noDate:l.summary+" : "+chf(q.total)+(q.rows.some(r=>r.rate===null)?" · "+l.pending:"");
+    if(estimate)estimate.textContent=q.d.nights===null?l.noDate:l.summary+" : "+chf(q.total)+(q.rows.some(r=>r.rate===null&&!r.pending)?" · "+l.pending:"");
     const approval=byId("extras-pet-approval");if(approval)approval.hidden=q.s.pets!=="3plus";
     const dep=byId("extras-departure");if(dep&&q.d.arrival)dep.min=q.d.arrival;
     const explain=byId("extras-summary-disclaimer");if(explain)explain.textContent=t.confirm;
+    const booking=byId("extras-book");
+    if(booking){
+      const url=core.bookingUrl(q.d,q.guests);
+      booking.href=url||config.bookingUrl;
+      booking.setAttribute("aria-disabled",String(!url||Boolean(q.errors.length)));
+    }
+    document.querySelectorAll("[data-nightly-price]").forEach(node=>{
+      node.textContent=chf(config.nightly[node.dataset.nightlyPrice])+" / "+l.night;
+    });
+    for(const count of [1,2]){
+      const option=document.querySelector('[data-extra-text="pet'+count+'"]');
+      if(option)option.textContent=t["pet"+count]+" — "+chf(config.nightly.pet*count)+" / "+l.night;
+    }
+    const petNote=document.querySelector('[data-extra-text="petNote"]');
+    if(petNote)petNote.textContent=petNote.textContent.replace(/CHF\s*\d+(?:[.,]\d+)?/,chf(config.nightly.pet));
+    for(const kind of ["simple","premium"]){
+      const price=byId("fondue-"+kind+"-price");
+      const value=config.fondue[kind+q.s[kind]];
+      if(price)price.textContent=Number.isFinite(value)?chf(value):l.pending;
+    }
     reportError("");
   }
   function validate(emailRequired){
@@ -124,8 +134,9 @@
       "E-mail: "+(byId("extras-email")?.value.trim()||"-"),
       "Référence Smoobu: "+(byId("extras-reference")?.value.trim()||"-"),"",
       "Options choisies:"];
-    for(const r of q.rows)lines.push("• "+r.title+" — "+(r.rate===null?l.pending:chf(r.rate)+" × "+q.d.nights+" = "+chf(r.total)));
-    lines.push("",l.summary+": "+chf(q.total),l.pending+" (si commandé)");
+    for(const r of q.rows)lines.push("• "+r.title+" — "+rowPrice(r,q));
+    lines.push("",l.summary+": "+chf(q.total));
+    if(q.rows.some(r=>r.rate===null&&!r.pending))lines.push(l.pending);
     const notes=byId("extras-notes")?.value.trim();
     if(notes)lines.push("","Notes: "+notes);
     lines.push("",l.notice);
@@ -147,6 +158,10 @@
   const today=localToday();
   for(const id of ["extras-arrival","extras-departure"]){const node=byId(id);if(node)node.min=today;}
   byId("extras-order-form")?.addEventListener("submit",event=>event.preventDefault());
+  byId("extras-book")?.addEventListener("click",event=>{
+    const q=calculate();
+    if(q.errors.length){event.preventDefault();reportError(q.errors.join(" "));}
+  });
   byId("extras-send")?.addEventListener("click",()=>{
     const q=validate(true);if(!q)return;
     location.href="mailto:chaletlardoise@gmail.com?subject="+encodeURIComponent(l.intro)+"&body="+encodeURIComponent(message(q));

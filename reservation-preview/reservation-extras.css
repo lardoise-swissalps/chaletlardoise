@@ -68,5 +68,10 @@
 .extras-validation{background:#fff1e7;color:#7e3421;font:700 .84rem/1.45 Arial,sans-serif;padding:.8rem;margin:.8rem 0;border-left:4px solid #d58762;border-radius:3px}
 .extras-summary-actions button{font:700 .86rem/1.4 Arial,sans-serif}
 .extras-group fieldset legend{font-weight:700}
+.booking-fallback{font-size:.85rem;text-align:right;color:#6e4b2b;text-decoration:underline}
+.extras-booking-handoff{margin-top:1.4rem;padding:1.25rem;background:#fff;border:1px solid #d4cbbd;border-radius:8px}
+.extras-booking-handoff h3{font:400 1.6rem/1.2 "Iowan Old Style",Palatino,Georgia,serif;margin:0 0 .5rem}
+.extras-booking-handoff p{max-width:75ch;color:#595e58;font-size:.85rem;margin:0 0 1rem}
+.extras-action[aria-disabled="true"]{opacity:.65}
 @media(max-width:900px){.extras-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.extras-form-grid{grid-template-columns:1fr}.extras-order-details{padding-top:1rem}.extras-estimate{font-size:.96rem}}

@@ -12,6 +12,8 @@
     />
     <link rel="icon" href="/chaletlardoise/images/logo.svg" />
     <link rel="stylesheet" href="./reservation-extras.css" />
+    <script src="./booking-config.js"></script>
+    <script src="./booking-core.js"></script>
     <style>
       :root {
         --ink: #101311;
@@ -254,7 +256,7 @@
         padding: clamp(1rem, 2.8vw, 2.25rem);
       }
 
-      #apartmentIframeAll {
+      #apartmentIframe2948066 {
         min-height: 540px;
       }
 
@@ -386,13 +388,13 @@
           <span class="live-source">Données synchronisées par Smoobu</span>
         </div>
         <div class="booking-card">
-          <div id="apartmentIframeAll">
+          <div id="apartmentIframe2948066">
             <script src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script>
             <script>
               BookingToolIframe.initialize({
-                url: "https://login.smoobu.com/fr/booking-tool/iframe/1441081",
+                url: "https://login.smoobu.com/fr/booking-tool/iframe/1441081/2948066",
                 baseUrl: "https://login.smoobu.com",
-                target: "#apartmentIframeAll"
+                target: "#apartmentIframe2948066"
               });
             </script>
             <noscript>
@@ -401,6 +403,7 @@
           </div>
         </div>
         <p class="form-note">Réservation directe via le moteur sécurisé Smoobu. Les modalités de paiement sont affichées avant confirmation.</p>
+        <p class="booking-fallback"><a href="https://booking.smoobu.com/9A1441081" target="_blank" rel="noopener noreferrer" data-extra-text="openBooking">Ouvrir le formulaire de réservation dans un nouvel onglet ↗</a></p>
       </section>
     </main>
 
@@ -431,7 +434,7 @@
             <label class="extras-option" for="extras-jacuzzi">
               <input type="checkbox" id="extras-jacuzzi" />
               <span class="extras-option-body">
-                <span class="extras-option-top"><span class="extras-option-title" data-extra-text="jacuzzi">Jacuzzi extérieur</span><span class="extras-option-price">CHF 70 / nuit</span></span>
+                <span class="extras-option-top"><span class="extras-option-title" data-extra-text="jacuzzi">Jacuzzi extérieur</span><span class="extras-option-price" data-nightly-price="jacuzzi">CHF 70 / nuit</span></span>
                 <span class="extras-option-desc" data-extra-text="jacuzziDesc">Un moment de détente en plein air, face aux montagnes.</span>
                 <span class="extras-option-note" data-extra-text="jacuzziMin">Minimum 2 nuits ; facturé pour toutes les nuitées.</span>
               </span>
@@ -439,7 +442,7 @@
             <label class="extras-option" for="extras-sauna">
               <input type="checkbox" id="extras-sauna" />
               <span class="extras-option-body">
-                <span class="extras-option-top"><span class="extras-option-title" data-extra-text="sauna">Sauna intérieur</span><span class="extras-option-price">CHF 60 / nuit</span></span>
+                <span class="extras-option-top"><span class="extras-option-title" data-extra-text="sauna">Sauna intérieur</span><span class="extras-option-price" data-nightly-price="sauna">CHF 60 / nuit</span></span>
                 <span class="extras-option-desc" data-extra-text="saunaDesc">Sauna privatif à l’intérieur du chalet, après une journée en montagne.</span>
                 <span class="extras-option-note" data-extra-text="fullStay">Chaque nuit du séjour est facturée, sans exception.</span>
               </span>
@@ -455,7 +458,7 @@
             <label class="extras-option" for="extras-barbecue">
               <input type="checkbox" id="extras-barbecue" />
               <span class="extras-option-body">
-                <span class="extras-option-top"><span class="extras-option-title" data-extra-text="bbq">Barbecue</span><span class="extras-option-price">CHF 10 / nuit</span></span>
+                <span class="extras-option-top"><span class="extras-option-title" data-extra-text="bbq">Barbecue</span><span class="extras-option-price" data-nightly-price="barbecue">CHF 10 / nuit</span></span>
                 <span class="extras-option-desc" data-extra-text="bbqDesc">Pour profiter du jardin et des repas en plein air.</span>
                 <span class="extras-option-note"><span class="extras-tag" data-extra-text="summer">Mai à octobre seulement · toutes les nuits du séjour</span></span>
               </span>
@@ -497,7 +500,7 @@
                 <option value="4" data-extra-text="format4">Pour 4 personnes</option>
                 <option value="8" data-extra-text="format8">Pour 8 personnes</option>
               </select>
-              <span class="extras-option-price" data-extra-text="pricePending">Prix à confirmer</span>
+              <span class="extras-option-price" data-extra-text="pricePending" id="fondue-simple-price">Prix à confirmer</span>
             </article>
             <article class="extras-pack premium">
               <span class="extras-tag" data-extra-text="premiumBadge">Saveurs du Valais</span>
@@ -515,7 +518,7 @@
                 <option value="4" data-extra-text="format42">Pour 4 personnes</option>
                 <option value="8" data-extra-text="format82">Pour 8 personnes</option>
               </select>
-              <span class="extras-option-price" data-extra-text="pricePending2">Prix à confirmer</span>
+              <span class="extras-option-price" data-extra-text="pricePending2" id="fondue-premium-price">Prix à confirmer</span>
             </article>
           </div>
           <p class="extras-packs-note" data-extra-text="wineNote">Composition, producteurs et quantités à confirmer avant la vente. Le vin de Chamoson et les épices valaisannes dépendent des partenariats conclus. Le pack premium contient du vin, réservé aux personnes légalement autorisées à acheter de l’alcool. Packs fournis une seule fois par séjour.</p>
@@ -541,7 +544,7 @@
           <p class="extras-estimate" id="extras-estimate" aria-live="polite"></p>
           <p class="extras-validation" id="extras-validation" role="alert" hidden></p>
           <ul id="extras-summary-list" aria-live="polite"><li>Aucune option présélectionnée.</li></ul>
-          <p data-extra-text="summaryNote">Tarifs à la nuit : multipliés automatiquement par le nombre total de nuitées dans Smoobu. Packs fondue : un prix fixe par réservation, à confirmer. Hébergement non inclus dans ce récapitulatif.</p>
+          <p data-extra-text="summaryNote">Estimation des options pour toutes les nuits, hors hébergement. Les packs fondue sont facturés une fois, après confirmation du prix. Cette sélection ne s’ajoute pas automatiquement au panier Smoobu.</p>
         </div>
         <div class="extras-summary-actions">
           <button type="button" class="extras-action secondary" id="extras-copy" data-extra-text="copy">Copier ma sélection</button>
@@ -549,6 +552,11 @@
         </div>
       </div>
       </form>
+      <div class="extras-booking-handoff">
+        <h3 data-extra-text="continueTitle">Retrouver le prix du chalet pour ces dates</h3>
+        <p data-extra-text="continueHelp">Vos dates et le nombre de voyageurs sont repris dans Smoobu. Les options ne sont pas transférées : leur disponibilité et leur prix doivent être confirmés séparément. N’envoyez aucune donnée bancaire par e-mail.</p>
+        <a class="extras-action" id="extras-book" href="https://booking.smoobu.com/9A1441081" target="_blank" rel="noopener noreferrer" data-extra-text="continueBooking">Voir le tarif du chalet dans Smoobu ↗</a>
+      </div>
       <p class="extras-disclaimer" id="extras-summary-disclaimer" role="note">Important : ce choix d’options n’est pas encore transmis automatiquement à Smoobu. Sélectionnez les extras dans le moteur de réservation s’ils y figurent, ou envoyez votre demande séparément. Seul le tarif final affiché par Smoobu fait foi.</p>
       <a class="extras-next" href="#reservation-smoobu" data-extra-text="backToBooking">↑ Revenir au formulaire de réservation</a>
     </section>
