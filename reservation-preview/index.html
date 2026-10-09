@@ -11,7 +11,7 @@
       content="Réservez directement au Chalet L’Ardoise dans les Alpes valaisannes. Disponibilités et tarifs synchronisés avec Smoobu."
     />
     <link rel="icon" href="/chaletlardoise/images/logo.svg" />
-    <link rel="stylesheet" href="./reservation-extras.css?v=20261009" />
+    <link rel="stylesheet" href="./reservation-extras.css?v=20261009b" />
     <script src="./booking-config.js"></script>
     <script src="./booking-core.js"></script>
     <style>
@@ -248,7 +248,7 @@
       }
 
       .booking-card {
-        min-height: 610px;
+        min-height: 0;
         border: 1px solid var(--line);
         border-top: 3px solid var(--bronze);
         background: var(--white);
@@ -394,19 +394,17 @@
           <p data-extra-text="paymentGuide">Paiement intégral par virement bancaire. Demandez les conditions d’annulation de votre offre avant de confirmer.</p>
         </div>
         <div class="booking-card">
-          <div id="apartmentIframe2948066">
-            <script src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script>
-            <script>
-              BookingToolIframe.initialize({
-                url: "https://login.smoobu.com/fr/booking-tool/iframe/1441081/2948066",
-                baseUrl: "https://login.smoobu.com",
-                target: "#apartmentIframe2948066"
-              });
-            </script>
-            <noscript>
-              <p>Activez JavaScript pour afficher le formulaire de réservation Smoobu.</p>
-            </noscript>
-          </div>
+          <form id="booking-entry" class="booking-entry">
+            <div class="extras-form-grid">
+              <label class="extras-input-label"><span data-extra-text="arrivalLabel">Arrivée</span><input required type="date" id="booking-arrival" /></label>
+              <label class="extras-input-label"><span data-extra-text="departureLabel">Départ</span><input required type="date" id="booking-departure" /></label>
+              <label class="extras-input-label"><span data-extra-text="guestLabel">Voyageurs</span><input required type="number" id="booking-guests" min="1" max="8" value="4" /></label>
+            </div>
+            <button type="submit" class="extras-action" id="booking-search">Voir le prix de mon séjour</button>
+            <p id="booking-entry-status" role="status"></p>
+          </form>
+          <iframe id="booking-current-stay" title="Réservation directe du Chalet L’Ardoise" hidden style="width:100%;height:1900px;border:0" allow="payment"></iframe>
+          <noscript><p>Activez JavaScript ou utilisez le lien ci-dessous pour réserver directement dans Smoobu.</p></noscript>
         </div>
         <p class="form-note">Réservation directe via le moteur sécurisé Smoobu. Les modalités de paiement sont affichées avant confirmation.</p>
         <p class="booking-fallback"><a href="https://booking.smoobu.com/9A1441081" target="_blank" rel="noopener noreferrer" data-extra-text="openBooking">Ouvrir le formulaire de réservation dans un nouvel onglet ↗</a></p>
@@ -609,5 +607,6 @@
 </script>
     <script src="./reservation-extras-i18n.js?v=20261009" defer></script>
     <script src="./reservation-extras.js?v=20261009" defer></script>
+    <script src="./booking-entry.js" defer></script>
 </body>
 </html>

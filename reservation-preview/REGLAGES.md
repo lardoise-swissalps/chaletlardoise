@@ -88,6 +88,11 @@ Sources officielles :
 
 Le formulaire Smoobu constitue le parcours principal. Le simulateur séparé est
 facultatif et repliable ; il ne transmet pas les options au panier Smoobu.
+L’entrée de réservation demande les dates et le nombre de voyageurs, puis charge
+le moteur public avec ces paramètres via `booking-entry.js`. Cela évite la vue
+initiale du widget historique, qui affichait encore d’anciens libellés d’extras.
+Le lien d’ouverture dans un nouvel onglet reprend le même séjour. Aucun nom,
+e-mail ou numéro de téléphone n’est transmis par cette entrée.
 Le ménage de CHF 290 par réservation est expliqué comme une ligne comprise
 dans le total final, sans modification du tarif Smoobu.
 
