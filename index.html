@@ -56,4 +56,31 @@
       window.location.href = "/chaletlardoise/reservation-preview/";
     }
   }, true);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".booking-section");
+    if (!section) return;
+    const heading = section.querySelector(".booking-intro h2");
+    if (heading) heading.textContent = "Consultez les dates libres";
+    const paragraphs = section.querySelectorAll(".booking-intro p");
+    if (paragraphs[1]) paragraphs[1].textContent =
+      "Le calendrier indique les dates libres. Cliquez sur « Réserver » pour voir le tarif actualisé selon votre séjour et confirmer en ligne.";
+    const promises = section.querySelectorAll(".booking-promises span");
+    if (promises[1]) promises[1].lastChild.nodeValue = "Prix et réservation en ligne";
+    const link = section.querySelector('a[href="#contact"]');
+    if (link) {
+      link.href = "/chaletlardoise/reservation-preview/";
+      link.setAttribute("aria-label", "Réserver en direct et consulter les tarifs");
+      for (const node of link.childNodes) {
+        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
+          node.nodeValue = "Réserver en direct";
+          break;
+        }
+      }
+    }
+    document.querySelectorAll('a[href="#reservation"]').forEach(function (anchor) {
+      anchor.href = "/chaletlardoise/reservation-preview/";
+    });
+  });
+
 </script></body></html><script>self.__VINEXT_RSC_CHUNKS__=self.__VINEXT_RSC_CHUNKS__||[];self.__VINEXT_RSC_CHUNKS__.push("2:I[\"8c0f216c4604\",[],\"Children\",1]\n3:I[\"15c18cfaeeff\",[],\"LayoutSegmentProvider\",1]\n4:I[\"8c0f216c4604\",[],\"Slot\",1]\n5:I[\"593f344dc510\",[],\"RedirectBoundary\",1]\n:HL[\"/chaletlardoise/assets/index-BHR7tETQ.css\",\"style\"]\n0:{\"__route\":\"route:/\",\"__interceptionContext\":null,\"__layoutIds\":[\"layout:/\"],\"__rootLayout\":\"/\",\"page:/\":\"$L1\",\"layout:/\":[[[[\"$\",\"link\",\"css:/chaletlardoise/assets/index-BHR7tETQ.css\",{\"rel\":\"stylesheet\",\"precedence\":\"vite-rsc/importer-resources\",\"href\":\"/chaletlardoise/assets/index-BHR7tETQ.css\",\"data-rsc-css-href\":\"/chaletlardoise/assets/index-BHR7tETQ.css\"}],\"$undefined\"],[\"$\",\"html\",null,{\"lang\":\"fr\",\"children\":[\"$\",\"body\",null,{\"className\":\"antialiased\",\"children\":[\"$\",\"$L2\",null,{}]}]}]],null],\"route:/\":[[[\"$\",\"meta\",null,{\"charSet\":\"utf-8\"}],[[\"$\",\"title\",\"0\",{\"children\":\"Chalet L’Ardoise — Chalet de charme dans les Alpes valaisannes\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Chalet alpin de 150 m² pour 8 voyageurs à Mayens-de-Chamoson : 4 chambres, vue panoramique, sauna et jacuzzi disponibles en option.\"}],[\"$\",\"link\",\"2\",{\"rel\":\"shortcut icon\",\"href\":\"/chaletlardoise/images/logo.svg\"}],[\"$\",\"link\",\"3\",{\"rel\":\"icon\",\"href\":\"/chaletlardoise/images/logo.svg\"}]],[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]],[\"$\",\"$L3\",null,{\"segmentMap\":{\"children\":[]},\"children\":[\"$\",\"$L4\",null,{\"id\":\"layout:/\",\"parallelSlots\":\"$undefined\",\"children\":[\"$\",\"$L5\",null,{\"children\":[\"$\",\"$L3\",null,{\"segmentMap\":{\"children\":[]},\"children\":[\"$\",\"$L4\",null,{\"id\":\"page:/\"}]}]}]}]}]],\"__layoutFlags\":{\"layout:/\":\"s\"},\"__artifactCompatibility\":{\"schemaVersion\":1,\"graphVersion\":\"app-route-graph:4uhn5s1wvoptc\",\"deploymentVersion\":\"f4883621-d12e-4436-90e0-ee1d5b94b375\",\"appElementsSchemaVersion\":1,\"rscPayloadSchemaVersion\":1,\"rootBoundaryId\":\"/\",\"renderEpoch\":null}}\n")</script><script>self.__VINEXT_RSC_CHUNKS__=self.__VINEXT_RSC_CHUNKS__||[];self.__VINEXT_RSC_CHUNKS__.push("6:I[\"6efdf509a785\",[],\"default\",1]\n1:[\"$\",\"$L6\",null,{\"params\":\"$@7\",\"searchParams\":\"$@8\"}]\n")</script><script>self.__VINEXT_RSC_CHUNKS__=self.__VINEXT_RSC_CHUNKS__||[];self.__VINEXT_RSC_CHUNKS__.push("7:{}\n8:{}\n")</script><script>self.__VINEXT_RSC_DONE__=true</script>
