@@ -1,6 +1,6 @@
 
-/* Booking options planner. Display-only until Smoobu Additional Items are configured.
-   Do NOT inject extras into iframe: cross-origin checkout would ignore them. */
+/* Optional extras estimate and fondue enquiry. Native Smoobu extras are selected
+   in checkout; this planner only hands over dates and guest count. */
 (() => {
   "use strict";
   const core = window.LArdoiseBooking;
@@ -18,6 +18,13 @@
     it:{none:"Nessuna opzione selezionata",jacuzzi:"Jacuzzi esterna",sauna:"Sauna interna",barbecue:"Barbecue (solo maggio–ottobre)",pet1:"1 animale domestico",pet2:"2 animali domestici",petMore:"Più di 2 animali: autorizzazione necessaria",simple4:"Pacchetto fondue semplice – 4 persone",simple8:"Pacchetto fondue semplice – 8 persone",premium4:"Pacchetto fondue premium vallesano – 4 persone",premium8:"Pacchetto fondue premium vallesano – 8 persone",copy:"Copia selezione",copied:"Selezione copiata",copyFailed:"Impossibile copiare. Usa l'e-mail.",subject:"Extra richiesti – Chalet L’Ardoise",mailIntro:"Buongiorno, desidero richiedere i seguenti extra per il mio soggiorno allo Chalet L'Ardoise:",mailOutro:"Vi prego di confermare disponibilità, prezzi e pagamento. Questo messaggio non costituisce una prenotazione.",confirm:"Importante: le opzioni selezionate qui non vengono aggiunte automaticamente alla prenotazione Smoobu. Se disponibili, selezionatele di nuovo al checkout oppure inviate la richiesta separatamente. Il prezzo definitivo è quello mostrato da Smoobu."}
   };
   const t = T[language];
+  t.confirm = {
+    fr:"Pour ajouter les options au total de votre réservation, sélectionnez-les dans « Nos extras » du formulaire Smoobu. Cette simulation ne transmet pas votre sélection. Packs fondue : disponibilité et prix à confirmer par e-mail. Le montant final est affiché dans Smoobu avant confirmation.",
+    en:"Select extras in the Smoobu booking form to add them to your reservation total. This estimate does not transfer your selection. Fondue packs: availability and price confirmed by email. Smoobu shows the final total before you confirm.",
+    de:"Wählen Sie die Extras im Smoobu-Buchungsformular, um sie zum Gesamtpreis hinzuzufügen. Diese Schätzung überträgt Ihre Auswahl nicht. Fondue-Pakete: Verfügbarkeit und Preis per E-Mail bestätigen. Smoobu zeigt den Endpreis vor der Bestätigung.",
+    nl:"Kies de extra’s in het Smoobu-boekingsformulier om ze aan het totaal toe te voegen. Deze raming draagt uw selectie niet over. Fonduepakketten: beschikbaarheid en prijs per e-mail te bevestigen. Smoobu toont het definitieve totaal vóór bevestiging.",
+    it:"Seleziona gli extra nel modulo Smoobu per aggiungerli al totale della prenotazione. Questa stima non trasferisce la selezione. Pacchetti fondue: disponibilità e prezzo da confermare via e-mail. Smoobu mostra il totale finale prima della conferma."
+  }[language];
 
   const X = {
     fr:{dates:"Indiquez les dates d’arrivée et de départ.",invalid:"Les dates sont incorrectes : le départ doit suivre l’arrivée.",past:"L’arrivée ne peut pas être dans le passé.",guests:"Le chalet accueille de 1 à 8 voyageurs.",jacuzzi:"Jacuzzi : 2 nuits minimum.",bbq:"Barbecue : uniquement si toutes les nuitées sont entre mai et octobre.",pack:"Pour plus de 4 voyageurs, choisissez un pack pour 8 personnes.",name:"Renseignez votre nom.",email:"Renseignez une adresse e-mail valide.",extra:"Choisissez au moins une option.",night:"nuitée",summary:"Total estimé des options tarifées",pending:"Pack fondue : prix à confirmer",noDate:"Indiquez vos dates pour calculer les options.",noExtras:"Aucune option sélectionnée.",copied:"Sélection copiée",mail:"Votre application e-mail s’ouvre : vous devrez confirmer l’envoi.",intro:"Demande d’options – Chalet L’Ardoise",notice:"Ce message est une demande d’options, ni une réservation ni un paiement. Les prix définitifs restent à confirmer ; la réservation du chalet s’effectue dans Smoobu.",copyFail:"Copie impossible. Utilisez le bouton e-mail."},

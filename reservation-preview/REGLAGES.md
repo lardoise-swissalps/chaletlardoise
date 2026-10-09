@@ -10,7 +10,11 @@ Il n'y a aucun prix journalier d'hébergement recopié dans le site. Les frais d
 nettoyage, l'acompte, les modalités et les tarifs des canaux ne sont pas modifiés
 par ces fichiers.
 
-## Options : réglages à appliquer dans Smoobu
+## Options : réglages enregistrés dans Smoobu
+
+Appliqués avec l'accord de Yannick et vérifiés le 9 octobre 2026, après
+rechargement des réglages puis dans un nouveau parcours client. Identifiants :
+sauna 281030, barbecue 281035, jacuzzi 248721, animaux 327471.
 
 Configuration → Moteur de réservations → Paramètres des propriétés → Articles
 supplémentaires. Limiter les articles à la propriété du chalet et au **Moteur de
@@ -21,12 +25,12 @@ réservation** (pas au Guide Voyageur pour des jours isolés).
 | Jacuzzi — séjour entier, minimum 2 nuits | 70 | par nuit | 1 | Vérifier le minimum de séjour dans Smoobu |
 | Sauna — séjour entier | 60 | par nuit | 1 | Toutes les nuits |
 | Barbecue — mai à octobre, séjour entier | 10 | par nuit | 1 | Smoobu ne montre pas de restriction saisonnière par article dans l'interface inspectée |
-| Animal domestique — séjour entier | 15 | par nuit | 2 | La quantité représente les animaux, pas les nuits ni les voyageurs |
+| Animal domestique — séjour entier (maximum 2) | 15 | par nuit | 2 | La quantité représente les animaux, pas les nuits ni les voyageurs |
 
 Tous sont **optionnels**, avec montant fixe (pas un pourcentage). Ne pas choisir
 « par personne et par nuit » pour les animaux : cela multiplierait aussi par le
 nombre de voyageurs. Ne pas toucher aux réglages de TVA existants sans décision
-comptable. Toute modification Smoobu doit être confirmée avant application.
+comptable. Les réglages de TVA existants sont conservés.
 
 La simulation sur le site bloque le barbecue hors saison et le jacuzzi sur une
 seule nuit. Ces validations **ne constituent pas un verrou du checkout externe** :
@@ -49,9 +53,11 @@ Les packs tarifés sont comptés une fois par séjour par le calculateur.
 
 Le bouton sous le récapitulatif transmet à Smoobu uniquement les dates et le
 nombre de voyageurs. Il n'envoie pas les coordonnées, la sélection d'options ni
-un prix calculé par le navigateur. Les options restent une demande séparée tant
-que les réglages natifs ne sont pas appliqués et vérifiés. Le courriel de demande
-n'est pas envoyé automatiquement et ne doit jamais contenir de données bancaires.
+un prix calculé par le navigateur. Pour être inclus dans le total de réservation,
+le jacuzzi, le sauna, le barbecue et les animaux doivent être sélectionnés dans
+« Nos extras » du formulaire Smoobu. La simulation est facultative ; les packs
+fondue restent une demande séparée. Le courriel n'est pas envoyé automatiquement
+et ne doit jamais contenir de données bancaires.
 
 ## Paiement et essais
 
@@ -77,6 +83,15 @@ Sources officielles :
 ## Vérification
 
 `node --test reservation-preview/booking-core.test.cjs`
+
+Devis client vérifié pour le 23–25 novembre 2026, 4 voyageurs : prix de base
+717 CHF + nettoyage 290 CHF + jacuzzi 140 CHF + sauna 120 CHF + deux animaux
+60 CHF = **1 327 CHF**. Les extras totalisent **320 CHF** pour deux nuits.
+Quantités maximales visibles : sauna, barbecue et jacuzzi 1 ; animaux 2.
+Aucune réservation n'a été soumise, aucune date bloquée, aucun paiement effectué.
+Un ancien lien de devis conservait les libellés précédents ; le nouveau parcours
+affiche les quatre articles et leurs tarifs par nuit. Toujours vérifier un devis
+actualisé après une modification.
 
 Ne confirmer un paiement, une réservation ou un réglage actif qu'après avoir
 constaté son résultat. Aucun secret Stripe/Smoobu n'est stocké dans ce dépôt public.

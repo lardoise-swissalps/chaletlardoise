@@ -367,7 +367,7 @@
         <p class="eyebrow">Séjour dans les Alpes</p>
         <h1 id="page-title">Réservez votre séjour</h1>
         <p class="lead">
-          Choisissez vos dates et le nombre de voyageurs (jusqu’à 8). Smoobu calcule le tarif du chalet selon les disponibilités et les prix à jour. Les options se préparent ci-dessous.
+          Choisissez vos dates et le nombre de voyageurs (jusqu’à 8), puis vos options dans le formulaire de réservation. Smoobu calcule le prix du chalet et ajoute les options sélectionnées au total avant confirmation.
         </p>
         <ol class="steps">
           <li><span>01</span>Dates et nombre de voyageurs</li>
@@ -378,7 +378,7 @@
         <a class="extras-next" href="#options" data-extra-text="gotoOptions">↓ Découvrir les options du séjour</a>
         <p class="safety-note">
           <strong>Bien préparer votre séjour</strong>
-          Le prix du chalet et son paiement sont gérés dans Smoobu. Les options choisies ci-dessous sont une demande séparée tant qu’elles ne sont pas proposées au paiement.
+          Jacuzzi, sauna, barbecue et animaux se sélectionnent dans « Nos extras » du formulaire. Ils sont facturés pour toutes les nuits du séjour. Jacuzzi : minimum 2 nuits ; barbecue : mai à octobre uniquement. Les packs fondue restent sur demande.
         </p>
       </section>
 
@@ -410,14 +410,14 @@
     <section class="extras-section" id="options" aria-labelledby="extras-heading">
       <p class="extras-eyebrow" data-extra-text="kicker">Personnalisez votre séjour</p>
       <h2 id="extras-heading" data-extra-text="heading">Les options du Chalet L’Ardoise</h2>
-      <p class="extras-subtitle" data-extra-text="description">Choisissez vos options pour le séjour entier. Jacuzzi, sauna, barbecue et animaux sont facturés sur toutes les nuits réservées ; il n’est pas possible de sélectionner des jours isolés. Les packs fondue sont fournis une fois par séjour, pour 4 ou 8 personnes.</p>
+      <p class="extras-subtitle" data-extra-text="description">Découvrez les options et estimez leur coût ci-dessous. Pour les réserver, sélectionnez le jacuzzi, le sauna, le barbecue ou les animaux dans « Nos extras » du formulaire de réservation : leur montant sera ajouté au total. Les packs fondue pour 4 ou 8 personnes se demandent séparément.</p>
 
       <p class="extras-disclaimer" data-extra-text="entireStayRule"><strong>Règle pour toutes les options :</strong> toute option avec un tarif par nuit est réservée et facturée pour la totalité des nuits du séjour. Les jours isolés ne sont pas possibles, car les équipements demandent une préparation avant l'arrivée et un entretien après le départ. Les packs fondue sont facturés une seule fois par séjour.</p>
 
       <form class="extras-order-form" id="extras-order-form" novalidate>
         <fieldset class="extras-order-details">
           <legend data-extra-text="orderDetailsTitle">1 · Votre séjour</legend>
-          <p class="extras-caption" data-extra-text="orderDetailsHelp">Reprenez les dates sélectionnées dans Smoobu pour estimer vos options. Ce formulaire ne réserve pas le chalet.</p>
+          <p class="extras-caption" data-extra-text="orderDetailsHelp">Cette simulation est facultative. Reprenez vos dates pour estimer les options ou demander un pack fondue. La réservation et le montant final se trouvent dans le formulaire Smoobu ci-dessus.</p>
           <div class="extras-form-grid">
             <label class="extras-input-label"><span data-extra-text="arrivalLabel">Arrivée</span><input required type="date" id="extras-arrival" name="arrival" /></label>
             <label class="extras-input-label"><span data-extra-text="departureLabel">Départ</span><input required type="date" id="extras-departure" name="departure" /></label>
@@ -553,11 +553,11 @@
       </div>
       </form>
       <div class="extras-booking-handoff">
-        <h3 data-extra-text="continueTitle">Retrouver le prix du chalet pour ces dates</h3>
-        <p data-extra-text="continueHelp">Vos dates et le nombre de voyageurs sont repris dans Smoobu. Les options ne sont pas transférées : leur disponibilité et leur prix doivent être confirmés séparément. N’envoyez aucune donnée bancaire par e-mail.</p>
-        <a class="extras-action" id="extras-book" href="https://booking.smoobu.com/9A1441081" target="_blank" rel="noopener noreferrer" data-extra-text="continueBooking">Voir le tarif du chalet dans Smoobu ↗</a>
+        <h3 data-extra-text="continueTitle">Voir le prix total et réserver</h3>
+        <p data-extra-text="continueHelp">Vos dates et le nombre de voyageurs sont repris dans Smoobu. Choisissez-y les options dans « Nos extras » pour les ajouter au total ; la sélection de cette simulation n’est pas transférée. Les packs fondue restent sur demande.</p>
+        <a class="extras-action" id="extras-book" href="https://booking.smoobu.com/9A1441081" target="_blank" rel="noopener noreferrer" data-extra-text="continueBooking">Choisir les options et réserver dans Smoobu ↗</a>
       </div>
-      <p class="extras-disclaimer" id="extras-summary-disclaimer" role="note">Important : ce choix d’options n’est pas encore transmis automatiquement à Smoobu. Sélectionnez les extras dans le moteur de réservation s’ils y figurent, ou envoyez votre demande séparément. Seul le tarif final affiché par Smoobu fait foi.</p>
+      <p class="extras-disclaimer" id="extras-summary-disclaimer" role="note">Pour ajouter les options au total de votre réservation, sélectionnez-les dans « Nos extras » du formulaire Smoobu. Cette simulation ne transmet pas votre sélection. Packs fondue : disponibilité et prix à confirmer par e-mail. Le montant final est affiché dans Smoobu avant confirmation.</p>
       <a class="extras-next" href="#reservation-smoobu" data-extra-text="backToBooking">↑ Revenir au formulaire de réservation</a>
     </section>
   <script>
@@ -568,6 +568,14 @@
     const lang = (new URLSearchParams(location.search).get('lang') || selected || navigator.language || 'fr').toLowerCase().split('-')[0];
     const labels = dictionary[lang];
     if (!labels) return;
+    const bookingGuidance = {
+      en:["Choose your dates and number of guests (up to 8), then select extras in the booking form. Smoobu adds your chosen extras to the chalet price and shows the total before confirmation.","Choose hot tub, sauna, barbecue and pets under ‘Our extras’ in the booking form. They are charged for every night. Hot tub: at least 2 nights; barbecue: May–October only. Fondue packs are available on request."],
+      de:["Wählen Sie Daten und Gästezahl (bis 8), dann die Extras im Buchungsformular. Smoobu addiert Ihre Extras zum Chaletpreis und zeigt den Gesamtpreis vor der Bestätigung.","Wählen Sie Whirlpool, Sauna, Grill und Haustiere bei den Extras im Buchungsformular. Sie werden für alle Nächte berechnet. Whirlpool: mindestens 2 Nächte; Grill: nur Mai bis Oktober. Fondue-Pakete auf Anfrage."],
+      nl:["Kies uw datums en aantal gasten (maximaal 8), daarna de extra’s in het boekingsformulier. Smoobu telt uw gekozen extra’s op bij de chaletprijs en toont het totaal vóór bevestiging.","Kies jacuzzi, sauna, barbecue en huisdieren bij de extra’s in het boekingsformulier. Ze gelden voor alle nachten. Jacuzzi: minimaal 2 nachten; barbecue: alleen mei–oktober. Fonduepakketten op aanvraag."],
+      it:["Scegli date e numero di ospiti (fino a 8), poi gli extra nel modulo di prenotazione. Smoobu aggiunge gli extra al prezzo dello chalet e mostra il totale prima della conferma.","Scegli jacuzzi, sauna, barbecue e animali nella sezione extra del modulo. Si pagano per tutte le notti. Jacuzzi: minimo 2 notti; barbecue: solo maggio–ottobre. Pacchetti fondue su richiesta."]
+    };
+    labels[3] = bookingGuidance[lang][0];
+    labels[9] = bookingGuidance[lang][1];
     document.documentElement.lang = lang;
     const set = (selector, text) => { const el = document.querySelector(selector); if (el) el.textContent = text; };
     set('.test-bar', labels[0]); set('.eyebrow', labels[1]); set('#page-title', labels[2]);
