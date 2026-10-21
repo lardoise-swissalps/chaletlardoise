@@ -1,0 +1,14 @@
+/* Chalet L'Ardoise — refundable deposit 329906.
+   Smoobu combines mandatory fees and selected extras in addon-label.
+   This note describes the deposit without relabelling that combined amount.
+   Native amounts and server-side calculations remain unchanged. */
+body:has(input[name="optionalItems[329906].id"]) :is(.basePrice-row,.addon-row):has(> .addon-label)::after {
+  content: "Dont caution obligatoire : 20 % du prix de l’hébergement, hors ménage et options. Remboursée dans les 7 jours suivant le départ si aucun dégât n’est constaté.\AIncluding a required security deposit: 20% of accommodation, excluding cleaning and extras. Refunded within 7 days after check-out if no damage is found.";
+  display: block;
+  clear: both;
+  white-space: pre-line;
+  padding: .5rem 0 .7rem;
+  font-size: .76rem;
+  line-height: 1.5;
+  color: #424242;
+}

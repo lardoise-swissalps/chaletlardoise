@@ -96,10 +96,11 @@ e-mail ou numéro de téléphone n’est transmis par cette entrée.
 Le ménage de CHF 290 par réservation est expliqué comme une ligne comprise
 dans le total final, sans modification du tarif Smoobu.
 
-La page `infos-sejour/` reprend les informations pratiques et la caution déjà
-prévue pour les réservations directes (CHF 480, payable à l’arrivée, restitution
-sous 7 jours après vérification). Les réservations sur les plateformes restent
-soumises aux conditions de leur propre offre.
+La page `infos-sejour/` reprend les informations pratiques et la caution obligatoire
+pour les réservations directes : 20 % du prix de l’hébergement, hors ménage,
+options et taxe de séjour, ajoutés au total à payer. Restitution dans les 7 jours
+suivant le départ si aucun dégât n’est constaté. Les réservations sur les plateformes
+restent soumises aux conditions de leur propre offre.
 
 La politique d’annulation du moteur Smoobu était vide lors de la vérification.
 Aucun délai, frais de résiliation ou caractère non remboursable n’a été inventé.
@@ -127,3 +128,34 @@ actualisé après une modification.
 
 Ne confirmer un paiement, une réservation ou un réglage actif qu'après avoir
 constaté son résultat. Aucun secret Stripe/Smoobu n'est stocké dans ce dépôt public.
+
+
+## Caution obligatoire — 21 octobre 2026
+
+Dans Smoobu, l’article **329906** est obligatoire, limité à 1 par réservation,
+visible uniquement dans le moteur de réservation, avec une valeur de **20 %**
+et un taux de taxe de 0. Il ne présente aucun sélecteur de quantité au voyageur.
+Smoobu calcule ce pourcentage sur le prix de l’hébergement, sans ménage, options
+ou taxe de séjour. Ne pas utiliser le réglage « Acompte » pour cette caution.
+Le paiement intégral par virement couvre le séjour et cette caution.
+
+Le remboursement de la caution reste **manuel**, après contrôle du chalet.
+Aucun remboursement automatique et aucune empreinte bancaire ne sont configurés.
+Le libellé public et les pages FR/EN/DE/IT/NL indiquent le délai de 7 jours et
+la condition d’absence de dégâts.
+
+`smoobu-deposit.css` contient uniquement la personnalisation de présentation ajoutée
+au CSS existant dans Smoobu > Paramètres des outils de réservation > Modifications CSS.
+Elle rappelle les conditions de la caution juste avant le paiement total,
+sans changer les montants natifs. Smoobu additionne la caution et les options
+dans la ligne « Frais additionnel(s) » : cette ligne ne doit pas être renommée
+« Caution », car son montant inclut aussi les options choisies.
+
+Nouveau devis vérifié du 16 au 18 novembre 2026, 4 voyageurs :
+hébergement 706 CHF + ménage 290 CHF + caution 141.20 CHF = 1 137.20 CHF,
+hors taxe de séjour. Aucun paiement ni réservation de test n’a été effectué.
+
+La réservation directe est mise en avant sans montant d’économie promis :
+« sans intermédiaire ni frais de plateforme » décrit le canal de réservation.
+Un prix inférieur à Airbnb ou Booking.com doit être comparé sur les mêmes dates,
+occupants, options et conditions avant d’être annoncé.

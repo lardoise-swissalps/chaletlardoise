@@ -369,6 +369,7 @@
         <p class="lead">
           Choisissez vos dates et le nombre de voyageurs (jusqu’à 8), puis vos options dans le formulaire de réservation. Smoobu calcule le prix du chalet et ajoute les options sélectionnées au total avant confirmation.
         </p>
+        <p class="safety-note direct-booking-note"><strong data-extra-text="directBookingTitle">En direct avec le chalet</strong><span data-extra-text="directBookingBenefit">Réservez directement auprès du chalet, sans intermédiaire ni frais de plateforme. Profitez d’un contact privilégié pour préparer votre séjour.</span></p>
         <ol class="steps">
           <li><span>01</span>Dates et nombre de voyageurs</li>
           <li><span>02</span>Hébergement et éventuels frais</li>
@@ -390,7 +391,7 @@
         </div>
         <div class="booking-price-note" role="note">
           <strong data-extra-text="priceGuideTitle">Le prix, en toute clarté</strong>
-          <p data-extra-text="priceGuideBody">Le total affiché par Smoobu comprend le prix du chalet, le ménage de fin de séjour (CHF 290 par réservation) et les options que vous sélectionnez. Taxe de séjour : CHF 2.50 par personne et par nuit, réglée séparément. Caution de CHF 480 en réservation directe, en plus du séjour.</p>
+          <p data-extra-text="priceGuideBody">Le total Smoobu comprend le prix du chalet, le ménage de fin de séjour (CHF 290 par réservation), les options choisies et une caution obligatoire de 20 % du prix de l’hébergement, hors ménage et options. La caution est remboursée dans les 7 jours suivant le départ si aucun dégât n’est constaté. Taxe de séjour : CHF 2.50 par personne et par nuit, réglée séparément.</p>
           <p data-extra-text="paymentGuide">Paiement intégral par virement bancaire. Demandez les conditions d’annulation de votre offre avant de confirmer.</p>
         </div>
         <div class="booking-card">
@@ -605,7 +606,7 @@
     if (note && note.lastChild && note.lastChild.nodeType === 3) note.lastChild.nodeValue = labels[9];
   })();
 </script>
-    <script src="./reservation-extras-i18n.js?v=20261009" defer></script>
+    <script src="./reservation-extras-i18n.js?v=20261021-caution" defer></script>
     <script src="./reservation-extras.js?v=20261009" defer></script>
     <script src="./booking-entry.js" defer></script>
 </body>
