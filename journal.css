@@ -1,0 +1,21 @@
+.chalet-journal{scroll-margin-top:90px;background:var(--paper,#faf8f3);color:var(--ink,#202822);padding:clamp(3rem,5vw,5rem) clamp(1.2rem,5vw,5.5rem)}
+.chalet-journal-inner{max-width:1380px;margin:0 auto}
+.chalet-journal-heading{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2rem}
+.chalet-journal-heading h2{font-family:var(--serif,Georgia,serif);font-weight:400;font-size:clamp(2rem,3.4vw,3.25rem);letter-spacing:-.035em;line-height:1.1;margin:0}
+.chalet-journal-heading>p{max-width:340px;line-height:1.7;font-size:.9rem;color:var(--muted,#746f65);margin:0}
+.chalet-journal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(1.2rem,2.5vw,2.4rem)}
+.chalet-journal-card{min-width:0}
+.chalet-journal-image{display:block;overflow:hidden;background:#e7e4dc;aspect-ratio:3/2}
+.chalet-journal-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.chalet-journal-image:hover img{transform:scale(1.025)}
+.chalet-journal-copy{padding:1.2rem 0 .3rem}
+.chalet-journal-copy time{display:block;font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#746f65)}
+.chalet-journal-copy h3{font-family:var(--serif,Georgia,serif);font-weight:400;font-size:clamp(1.5rem,2.1vw,2rem);line-height:1.15;margin:.65rem 0}
+.chalet-journal-copy p{max-width:48ch;line-height:1.7;font-size:.87rem;color:var(--muted,#746f65);margin:0 0 1rem}
+.chalet-journal-copy small{display:block;color:var(--muted,#746f65);font-size:.67rem;margin-bottom:1rem}
+.chalet-journal-link{display:inline-flex;align-items:center;gap:.6rem;padding:.25rem 0;border-bottom:1px solid currentColor;font-size:.74rem;font-weight:500}
+.chalet-journal a:focus-visible{outline:2px solid #94744c;outline-offset:5px}
+.chalet-journal-social{display:flex;flex-wrap:wrap;gap:.8rem 2rem;margin-top:2rem;padding-top:1.2rem;border-top:1px solid #dedacf;font-size:.77rem;color:var(--sage,#667064)}
+.chalet-journal-social a{display:inline-flex;gap:.7rem;align-items:center}
+@media(max-width:640px){.chalet-journal-heading{display:block}.chalet-journal-heading>p{margin-top:1rem}.chalet-journal-grid{grid-template-columns:1fr}.chalet-journal-social{gap:1rem 1.5rem}}
+@media(prefers-reduced-motion:reduce){.chalet-journal-image img{transition:none}.chalet-journal-image:hover img{transform:none}}

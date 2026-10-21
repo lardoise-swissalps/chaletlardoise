@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-10-06",
+    "image": "images/bedroom-queen.jpg",
+    "instagram": "https://www.instagram.com/p/DeJ9NhUFcFG/",
+    "facebook": "https://facebook.com/122125900623122482/posts/122125904655122482",
+    "fr": {"title": "Le calme a sa chambre", "text": "Un lit queen-size, la chaleur du bois et une atmosphère douce pour retrouver le plaisir de se reposer.", "alt": "Chambre queen-size du Chalet L’Ardoise"},
+    "en": {"title": "Calm has its own room", "text": "A queen-size bed, warm wood and a peaceful atmosphere for a restful mountain stay.", "alt": "Queen-size bedroom at Chalet L’Ardoise"},
+    "de": {"title": "Ein Zimmer zum Entspannen", "text": "Ein Queensize-Bett, warmes Holz und eine ruhige Atmosphäre für erholsame Tage in den Bergen.", "alt": "Queensize-Schlafzimmer im Chalet L’Ardoise"},
+    "it": {"title": "Una stanza per la tranquillità", "text": "Un letto queen-size, il calore del legno e un’atmosfera serena per ritrovare il piacere del riposo.", "alt": "Camera queen-size dello Chalet L’Ardoise"}
+  },
+  {
+    "date": "2026-09-28",
+    "image": "images/region-alpes-valais.jpg",
+    "instagram": "https://www.instagram.com/p/Dd06LimDqO2/",
+    "facebook": "https://facebook.com/122125900623122482/posts/122125105551122482",
+    "credit": "Photo © Olivier Maire",
+    "fr": {"title": "Les paysages invitent à ralentir", "text": "Les sommets valaisans, l’air de la montagne et la lumière : un autre rythme, tout près du chalet.", "alt": "Paysage alpin dans la région de Chamoson et d’Ovronnaz"},
+    "en": {"title": "A change of pace in Valais", "text": "Mountain air, wide-open peaks and changing light invite you to slow down near the chalet.", "alt": "Alpine landscape near Chamoson and Ovronnaz"},
+    "de": {"title": "Im Wallis zur Ruhe kommen", "text": "Bergluft, weite Gipfel und wechselndes Licht laden rund um das Chalet zum Entschleunigen ein.", "alt": "Alpenlandschaft bei Chamoson und Ovronnaz"},
+    "it": {"title": "Rallentare tra i paesaggi del Vallese", "text": "L’aria di montagna, le vette e la luce invitano a ritrovare un ritmo più sereno vicino allo chalet.", "alt": "Paesaggio alpino nei dintorni di Chamoson e Ovronnaz"}
+  }
+]
