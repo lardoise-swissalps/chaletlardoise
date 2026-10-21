@@ -25,6 +25,7 @@
     const lang = language(), t = copy[lang];
     let section = document.getElementById('inspirations');
     if (section && lastLanguage === lang) return;
+    const created = !section;
     if (!section) {
       section = document.createElement('section');
       section.id = 'inspirations';
@@ -46,6 +47,7 @@
       link.textContent = t.nav;
     }
     lastLanguage = lang;
+    if (created && window.location.hash === '#inspirations') section.scrollIntoView({block:'start'});
   }
   function queue() {
     if (queued) return;
@@ -65,6 +67,15 @@
       window.addEventListener('storage', queue);
     } catch { /* Keep the rest of the page available if the journal cannot load. */ }
   }
+  document.addEventListener('click', event => {
+    const link = event.target.closest && event.target.closest('a[href="#inspirations"]');
+    const section = document.getElementById('inspirations');
+    if (!link || !section) return;
+    event.preventDefault();
+    event.stopPropagation();
+    history.replaceState(null, '', '#inspirations');
+    section.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+  }, true);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once:true});
   else start();
 })();
