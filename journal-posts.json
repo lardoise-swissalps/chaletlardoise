@@ -1,5 +1,57 @@
 [
   {
+    "date": "2026-11-06",
+    "image": "images/chalet-winter.jpg",
+    "instagram": "https://www.instagram.com/p/DfaJuuqiLm3/",
+    "facebook": "https://facebook.com/122125900623122482/posts/122128708143122482",
+    "fr": {
+      "title": "L’hiver aux Mayens-de-Chamoson",
+      "text": "Une escapade dans les Alpes valaisannes, près d’Ovronnaz, pour jusqu’à huit voyageurs. Jacuzzi extérieur et sauna privatif disponibles en option payante.",
+      "alt": "Chalet L’Ardoise et jardin couverts de neige sous un ciel ensoleillé"
+    },
+    "en": {
+      "title": "Winter in Mayens-de-Chamoson",
+      "text": "An escape to the Valais Alps, near Ovronnaz, for up to eight guests. The outdoor hot tub and private sauna are available as paid optional extras.",
+      "alt": "Chalet L’Ardoise and its snow-covered garden under a sunny sky"
+    },
+    "de": {
+      "title": "Winter in Mayens-de-Chamoson",
+      "text": "Eine Auszeit in den Walliser Alpen nahe Ovronnaz für bis zu acht Gäste. Aussenwhirlpool und private Sauna sind gegen Aufpreis verfügbar.",
+      "alt": "Chalet L’Ardoise und sein verschneiter Garten bei Sonnenschein"
+    },
+    "it": {
+      "title": "L’inverno a Mayens-de-Chamoson",
+      "text": "Una pausa nelle Alpi vallesane, vicino a Ovronnaz, per un massimo di otto ospiti. Jacuzzi esterna e sauna privata sono disponibili come extra a pagamento.",
+      "alt": "Chalet L’Ardoise e giardino innevato sotto un cielo soleggiato"
+    }
+  },
+  {
+    "date": "2026-11-03",
+    "image": "images/panoramic-lounge.jpg",
+    "instagram": "https://www.instagram.com/p/DfSbCvqjS5S/",
+    "facebook": "https://facebook.com/122125900623122482/posts/122128471707122482",
+    "fr": {
+      "title": "Une escapade à partager",
+      "text": "Se retrouver en famille ou entre amis dans l’atmosphère chaleureuse du Chalet L’Ardoise, aux Mayens-de-Chamoson. Jusqu’à huit voyageurs, près d’Ovronnaz.",
+      "alt": "Salon mansardé du Chalet L’Ardoise avec canapé et boiseries"
+    },
+    "en": {
+      "title": "An escape to share",
+      "text": "Bring family or friends together in the warm atmosphere of Chalet L’Ardoise in Mayens-de-Chamoson. Room for up to eight guests, near Ovronnaz.",
+      "alt": "Wood-panelled attic lounge at Chalet L’Ardoise with a large sofa"
+    },
+    "de": {
+      "title": "Eine gemeinsame Auszeit",
+      "text": "Mit Familie oder Freunden die gemütliche Atmosphäre des Chalet L’Ardoise in Mayens-de-Chamoson geniessen. Platz für bis zu acht Gäste, nahe Ovronnaz.",
+      "alt": "Wohnbereich im Dachgeschoss des Chalet L’Ardoise mit Sofa und Holzverkleidung"
+    },
+    "it": {
+      "title": "Una pausa da condividere",
+      "text": "Ritrovarsi con la famiglia o gli amici nell’atmosfera accogliente dello Chalet L’Ardoise a Mayens-de-Chamoson. Fino a otto ospiti, vicino a Ovronnaz.",
+      "alt": "Salotto mansardato dello Chalet L’Ardoise con divano e rivestimenti in legno"
+    }
+  },
+  {
     "date": "2026-10-31",
     "image": "images/winter-balcony.jpg",
     "instagram": "https://www.instagram.com/p/DfKsuQRjISE/",
@@ -23,59 +75,6 @@
       "title": "Ritrovarsi nelle Alpi",
       "text": "Quattro camere, fino a otto ospiti e l’atmosfera di Mayens-de-Chamoson per una vacanza con la famiglia o gli amici.",
       "alt": "Balcone innevato dello Chalet L’Ardoise con vista sulle montagne"
-    }
-  },
-  {
-    "date": "2026-10-30",
-    "image": "images/hero-hot-tub.jpg",
-    "instagram": "https://www.instagram.com/p/DfIIAshm0_s/",
-    "facebook": "https://facebook.com/122125900623122482/posts/122128101753122482",
-    "fr": {
-      "title": "Une parenthèse en montagne",
-      "text": "Le jardin, les montagnes valaisannes et le plaisir de séjourner ensemble. Jacuzzi extérieur et sauna disponibles en option payante.",
-      "alt": "Jardin et jacuzzi extérieur du Chalet L’Ardoise face à la vallée"
-    },
-    "en": {
-      "title": "A mountain escape",
-      "text": "A garden, Valais mountain views and time together. The outdoor hot tub and sauna are available as paid optional extras.",
-      "alt": "Garden and outdoor hot tub at Chalet L’Ardoise overlooking the valley"
-    },
-    "de": {
-      "title": "Eine Auszeit in den Bergen",
-      "text": "Ein Garten, die Walliser Berge und gemeinsame Zeit. Aussenwhirlpool und Sauna sind gegen Aufpreis verfügbar.",
-      "alt": "Garten und Aussenwhirlpool des Chalet L’Ardoise mit Talblick"
-    },
-    "it": {
-      "title": "Una pausa in montagna",
-      "text": "Il giardino, le montagne del Vallese e il piacere di stare insieme. Jacuzzi esterna e sauna sono disponibili come extra a pagamento.",
-      "alt": "Giardino e jacuzzi esterna dello Chalet L’Ardoise con vista sulla valle"
-    }
-  },
-  {
-    "date": "2026-10-28",
-    "image": "images/journal/chamoson-vignes-roses.jpg",
-    "instagram": "https://www.instagram.com/p/DfCR5L2Gzrc/",
-    "facebook": "https://facebook.com/122125900623122482/posts/122127956787122482",
-    "credit": "Photo © Olivier Maire",
-    "fr": {
-      "title": "Le Valais entre les vignes",
-      "text": "Les coteaux de Chamoson invitent à découvrir le terroir au rythme d’une balade, avant de retrouver le calme du chalet.",
-      "alt": "Roses et vignoble de Chamoson au pied des montagnes"
-    },
-    "en": {
-      "title": "Discover Valais among the vines",
-      "text": "Explore Chamoson’s vineyard slopes at a slower pace, then return to the calm of the chalet.",
-      "alt": "Roses and vineyards in Chamoson beneath the mountains"
-    },
-    "de": {
-      "title": "Das Wallis zwischen den Reben",
-      "text": "Die Rebberge von Chamoson laden zu einem gemütlichen Spaziergang ein, bevor Sie die Ruhe des Chalets geniessen.",
-      "alt": "Rosen und Rebberge von Chamoson am Fuss der Berge"
-    },
-    "it": {
-      "title": "Il Vallese tra le vigne",
-      "text": "I vigneti di Chamoson invitano a una passeggiata alla scoperta del territorio, prima di ritrovare la tranquillità dello chalet.",
-      "alt": "Rose e vigneti di Chamoson ai piedi delle montagne"
     }
   }
 ]
